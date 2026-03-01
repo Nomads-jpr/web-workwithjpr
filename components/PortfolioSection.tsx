@@ -6,13 +6,13 @@ const PortfolioSection: React.FC = () => {
 
   const projects = [
     {
-      title: 'Physiotherapie Praxis Stefan Datt',
-      type: 'Gesundheitswesen',
-      desc: 'Kompletter Webauftritt für eine Physiotherapie-Praxis in Berlin-Charlottenburg. Modernes Design, Behandlungsübersicht, Team-Vorstellung, Galerie und Online-Terminanfrage.',
-      tags: ['Website', 'Terminanfrage', 'Responsive Design', 'SEO'],
-      url: 'https://praxis-stefan-datt.vercel.app',
-      color: 'from-teal-500/20 to-emerald-500/20',
-      result: 'Professioneller Auftritt mit echten Praxis-Fotos und allen Behandlungen auf einen Blick'
+      title: 'Muay Thai Subyen e.V.',
+      type: 'Sport & Verein',
+      desc: 'Website für Berlins einziges durch die Thailand Sports Authority zertifiziertes Muay Thai Gym. Modernes Dark-Theme mit Neon-Akzenten, Trainingsplan, Mitgliederverwaltung und Kontaktmöglichkeiten.',
+      tags: ['Website', 'Backend-System', 'Mitgliederverwaltung', 'Responsive Design'],
+      url: 'https://muay-thai-subyen.vercel.app',
+      color: 'from-red-500/20 to-orange-500/20',
+      result: 'Authentische Online-Präsenz mit Trainingszeiten, Vereinsinfos und modernem Design'
     },
     {
       title: 'ropeFX — Industriekletterer Berlin',
