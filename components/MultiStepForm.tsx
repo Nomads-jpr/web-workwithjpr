@@ -8,10 +8,11 @@ const ContactForm: React.FC = () => {
     phone: '',
     message: ''
   });
+  const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
 
-  const canSubmit = formData.name.trim() !== '' && formData.email.trim() !== '';
+  const canSubmit = formData.name.trim() !== '' && formData.email.trim() !== '' && consent;
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -99,9 +100,23 @@ const ContactForm: React.FC = () => {
             onChange={e => setFormData(prev => ({ ...prev, message: e.target.value }))}
             rows={4}
             className="w-full px-4 py-3 rounded-xl bg-zinc-800/60 border border-white/10 text-white placeholder-gray-600 focus:border-cyan-500 focus:outline-none transition-colors resize-none"
-            placeholder="Erzähl uns kurz, was du brauchst..."
+            placeholder="Beschreib kurz dein Projekt — z.B. 'Brauche eine Website für meine Praxis'"
           />
         </div>
+
+        {/* DSGVO Consent */}
+        <label className="flex items-start gap-3 cursor-pointer group">
+          <input
+            type="checkbox"
+            checked={consent}
+            onChange={e => setConsent(e.target.checked)}
+            className="mt-1 w-4 h-4 rounded border-white/20 bg-zinc-800 text-cyan-500 focus:ring-cyan-500 focus:ring-offset-0 cursor-pointer"
+          />
+          <span className="text-gray-500 text-xs leading-relaxed group-hover:text-gray-400 transition-colors">
+            Ich stimme der Verarbeitung meiner Daten zur Bearbeitung meiner Anfrage zu.{' '}
+            <a href="/privacy" className="text-cyan-400/60 hover:text-cyan-400">Datenschutzerklärung</a>
+          </span>
+        </label>
       </div>
 
       <button
@@ -113,7 +128,7 @@ const ContactForm: React.FC = () => {
             : 'bg-zinc-700 text-gray-500 cursor-not-allowed'
         }`}
       >
-        {sending ? 'Wird gesendet...' : 'Nachricht senden'} <Send className="w-5 h-5" />
+        {sending ? 'Wird gesendet...' : 'Kostenlos anfragen'} <Send className="w-5 h-5" />
       </button>
 
       <p className="text-center text-gray-600 text-xs mt-4">

@@ -1,16 +1,14 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import ContactForm from './components/MultiStepForm';
+import ClientLogos from './components/ClientLogos';
 import AboutSection from './components/AboutSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import ServicesSection from './components/ServicesSection';
 import ProblemSection from './components/ProblemSection';
-import IndustrySection from './components/IndustrySection';
 import PricingSection from './components/PricingSection';
 import PortfolioSection from './components/PortfolioSection';
 import FAQSection from './components/FAQSection';
-import SocialProofStrip from './components/SocialProofStrip';
-import TrustSignals from './components/TrustSignals';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import CookieBanner from './components/CookieBanner';
@@ -89,49 +87,42 @@ const App: React.FC = () => {
       <div className="relative z-10">
         {/* Hero */}
         <header className="min-h-screen flex items-center justify-center px-4 pt-10 pb-20">
-          <div className="container mx-auto max-w-6xl text-center">
-            <div className="flex justify-center mb-16 animate-fade-in">
+          <div className="container mx-auto max-w-5xl text-center">
+            <div className="flex justify-center mb-14 animate-fade-in">
               <img
                 src="/JPR1.png"
                 alt="JPR Consulting"
-                className="w-40 h-40 md:w-56 md:h-56 hover:scale-110 transition-all duration-500 drop-shadow-[0_0_50px_rgba(255,255,255,0.5)] animate-pulse"
-                style={{ animationDuration: '3s' }}
+                className="w-36 h-36 md:w-48 md:h-48 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_50px_rgba(255,255,255,0.5)]"
               />
             </div>
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              Dein Geschäft verdient einen<br />
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-                Webauftritt, der Kunden bringt
+                Websites, die Kunden bringen
               </span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-400 max-w-3xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              Moderne Websites, Online-Buchungen und digitale Tools — <span className="text-white font-semibold">damit dein Business online wächst</span>. Kein Tech-Jargon. Nur Ergebnisse.
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              Moderne Webauftritte für lokale Unternehmen in Berlin.
+              <br className="hidden md:block" />
+              <span className="text-white font-semibold">Kein Tech-Jargon. Nur Ergebnisse.</span>
             </p>
 
-            <div className="mb-5">
-              <button
-                onClick={scrollToForm}
-                className="group relative inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-cyan-500 rounded-lg hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 animate-slide-up hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.6)]"
-                style={{ animationDelay: '0.3s' }}
-              >
-                Kostenloses Erstgespräch buchen
-              </button>
-            </div>
-
-            <div className="px-4 py-2 rounded-full border border-cyan-500/40 bg-cyan-500/10 text-cyan-400 text-sm font-semibold animate-fade-in inline-block" style={{ animationDelay: '0.4s' }}>
-              Nur 2–3 Projekte pro Monat
-            </div>
+            <button
+              onClick={scrollToForm}
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-cyan-500 rounded-lg hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 animate-slide-up hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.6)]"
+              style={{ animationDelay: '0.3s' }}
+            >
+              Kostenloses Erstgespräch buchen
+            </button>
           </div>
         </header>
 
-        <SocialProofStrip />
+        <ClientLogos />
         <ProblemSection />
         <ServicesSection scrollToForm={scrollToForm} />
-        <PortfolioSection />
-        <IndustrySection />
         <HowItWorksSection />
+        <PortfolioSection />
         <AboutSection scrollToForm={scrollToForm} />
         <PricingSection scrollToForm={scrollToForm} />
 
@@ -139,27 +130,34 @@ const App: React.FC = () => {
         <section id="consultation-form" className="py-24 px-4 relative">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
-              <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit für deinen neuen Webauftritt?</h2>
+              <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
               <p className="text-xl text-gray-400">Schreib uns — wir melden uns innerhalb von 24 Stunden.</p>
             </div>
             <ContactForm />
           </div>
         </section>
 
-        <TrustSignals />
         <FAQSection />
 
         {/* Footer */}
         <footer className="py-20 px-4 bg-black border-t border-white/5">
           <div className="container mx-auto max-w-6xl">
-            <div className="flex justify-center mb-12">
-              <img src="/JPR1.png" alt="JPR Consulting" className="w-32 h-32 md:w-40 md:h-40 opacity-80 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_30px_rgba(255,255,255,0.25)]" />
+            <div className="flex justify-center mb-10">
+              <img src="/JPR1.png" alt="JPR Consulting" className="w-28 h-28 md:w-36 md:h-36 opacity-80 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_30px_rgba(255,255,255,0.25)]" />
             </div>
-            <div className="flex flex-wrap justify-center gap-8 mb-12 text-sm">
+
+            {/* Site Links */}
+            <div className="flex flex-wrap items-center justify-center gap-3 mb-8">
+              <span className="px-3 py-1.5 rounded-full bg-cyan-500/10 border border-cyan-500/30 text-cyan-400 text-xs font-semibold">Web Services</span>
+              <a href="https://ai.workwithjpr.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-semibold hover:text-white hover:border-white/20 transition-colors">KI-Automatisierung</a>
+              <a href="https://game.workwithjpr.com" target="_blank" rel="noopener noreferrer" className="px-3 py-1.5 rounded-full bg-white/5 border border-white/10 text-gray-400 text-xs font-semibold hover:text-white hover:border-white/20 transition-colors">Gaming UA</a>
+            </div>
+
+            <div className="flex flex-wrap justify-center gap-8 mb-10 text-sm">
               <button onClick={() => navigate('IMPRINT')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Impressum</button>
               <button onClick={() => navigate('PRIVACY')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Datenschutz</button>
               <a href="mailto:info@workwithjpr.com" className="text-gray-400 hover:text-white transition-colors">Kontakt</a>
-              <a href="https://ai.workwithjpr.com" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">KI-Automatisierung</a>
+              <a href="https://www.linkedin.com/in/jan-rojek-b31474a" target="_blank" rel="noopener noreferrer" className="text-gray-400 hover:text-white transition-colors">LinkedIn</a>
             </div>
             <div className="border-t border-white/5 mb-8" />
             <div className="text-center space-y-2">
@@ -186,7 +184,7 @@ const App: React.FC = () => {
               <img src="/JPR1.png" alt="JPR" className="w-12 h-12 opacity-90" />
             </div>
             <button onClick={scrollToForm} className="px-5 py-2.5 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm md:text-base">
-              Jetzt Projekt besprechen →
+              Kostenlos anfragen
             </button>
           </div>
         </div>
