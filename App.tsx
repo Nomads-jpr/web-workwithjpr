@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
-import MultiStepForm from './components/MultiStepForm';
-import ResultsOverlay from './components/ResultsOverlay';
+import ContactForm from './components/MultiStepForm';
 import AboutSection from './components/AboutSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import ServicesSection from './components/ServicesSection';
@@ -15,14 +14,10 @@ import TrustSignals from './components/TrustSignals';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import CookieBanner from './components/CookieBanner';
-import { FormData, QualificationScore } from './types';
 
 type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY';
 
 const App: React.FC = () => {
-  const [showResults, setShowResults] = useState(false);
-  const [finalScore, setFinalScore] = useState<QualificationScore | null>(null);
-  const [finalFormData, setFinalFormData] = useState<FormData | null>(null);
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showStickyCTA, setShowStickyCTA] = useState(false);
   const [currentView, setCurrentView] = useState<ViewState>('HOME');
@@ -60,34 +55,6 @@ const App: React.FC = () => {
       window.history.pushState({}, '', path);
     }
   }, [currentView]);
-
-  const handleFormComplete = async (data: FormData, score: QualificationScore) => {
-    setFinalScore(score);
-    setFinalFormData(data);
-    setShowResults(true);
-
-    try {
-      const payload = {
-        formData: data,
-        qualificationScore: score,
-        timestamp: new Date().toISOString(),
-        source: 'web-workwithjpr',
-        metadata: {
-          userAgent: navigator.userAgent,
-          referrer: document.referrer,
-          language: navigator.language
-        }
-      };
-
-      await fetch('https://n8n.workwithjpr.com/webhook/web-workwithjpr', {
-        method: 'POST',
-        headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify(payload)
-      });
-    } catch (error) {
-      console.error('Webhook submission error:', error);
-    }
-  };
 
   const scrollToForm = () => {
     document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
@@ -173,9 +140,9 @@ const App: React.FC = () => {
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit für deinen neuen Webauftritt?</h2>
-              <p className="text-xl text-gray-400">In 2 Minuten herausfinden, was dein Business braucht.</p>
+              <p className="text-xl text-gray-400">Schreib uns — wir melden uns innerhalb von 24 Stunden.</p>
             </div>
-            <MultiStepForm onComplete={handleFormComplete} />
+            <ContactForm />
           </div>
         </section>
 
@@ -229,10 +196,6 @@ const App: React.FC = () => {
         <button onClick={scrollToTop} className="fixed bottom-8 right-8 z-40 p-4 rounded-full bg-zinc-900/80 backdrop-blur-md border border-white/10 text-white shadow-lg hover:bg-cyan-500 hover:border-cyan-500 transition-all duration-300 hover:scale-110 animate-fade-in" aria-label="Nach oben">
           <ArrowUp className="w-6 h-6" />
         </button>
-      )}
-
-      {showResults && finalScore && (
-        <ResultsOverlay score={finalScore} formData={finalFormData || undefined} onClose={() => setShowResults(false)} />
       )}
 
       <CookieBanner onAcceptAll={() => {}} onAcceptNecessary={() => {}} />
