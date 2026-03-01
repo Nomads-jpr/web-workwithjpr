@@ -1,16 +1,21 @@
 import React, { useState } from 'react';
-import { Send, CheckCircle } from 'lucide-react';
+import { Send, CheckCircle, AlertCircle } from 'lucide-react';
+
+const WEBHOOK_URL = 'https://n8n.workwithjpr.com/webhook/web-workwithjpr';
 
 const ContactForm: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     phone: '',
+    company: '',
+    website: '',
     message: ''
   });
   const [consent, setConsent] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [sending, setSending] = useState(false);
+  const [error, setError] = useState(false);
 
   const canSubmit = formData.name.trim() !== '' && formData.email.trim() !== '' && consent;
 
@@ -19,33 +24,41 @@ const ContactForm: React.FC = () => {
     if (!canSubmit) return;
 
     setSending(true);
+    setError(false);
 
-    // Send via mailto as a fallback-safe approach
-    const subject = encodeURIComponent(`Neue Anfrage von ${formData.name}`);
-    const body = encodeURIComponent(
-      `Name: ${formData.name}\nE-Mail: ${formData.email}\nTelefon: ${formData.phone || 'Nicht angegeben'}\n\nNachricht:\n${formData.message || 'Keine Nachricht angegeben.'}`
-    );
+    try {
+      const res = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          ...formData,
+          timestamp: new Date().toISOString(),
+          source: 'web.workwithjpr.com',
+        }),
+      });
 
-    window.location.href = `mailto:info@workwithjpr.com?subject=${subject}&body=${body}`;
-
-    // Show success after a brief delay
-    setTimeout(() => {
+      if (res.ok) {
+        setSubmitted(true);
+      } else {
+        setError(true);
+      }
+    } catch {
+      setError(true);
+    } finally {
       setSending(false);
-      setSubmitted(true);
-    }, 500);
+    }
   };
 
   if (submitted) {
     return (
       <div className="max-w-lg mx-auto text-center py-12 animate-slide-up">
         <CheckCircle className="w-16 h-16 mx-auto mb-6 text-emerald-400" />
-        <h3 className="text-2xl font-bold mb-3">Danke für deine Nachricht!</h3>
+        <h3 className="text-2xl font-bold mb-3">Nachricht gesendet!</h3>
         <p className="text-gray-400 leading-relaxed mb-8">
-          Dein E-Mail-Programm sollte sich geöffnet haben. Falls nicht, schreib uns direkt an{' '}
-          <a href="mailto:info@workwithjpr.com" className="text-cyan-400 hover:underline">info@workwithjpr.com</a>.
+          Danke, {formData.name}. Wir melden uns innerhalb von 24 Stunden bei dir.
         </p>
         <button
-          onClick={() => { setSubmitted(false); setFormData({ name: '', email: '', phone: '', message: '' }); }}
+          onClick={() => { setSubmitted(false); setError(false); setFormData({ name: '', email: '', phone: '', company: '', website: '', message: '' }); setConsent(false); }}
           className="text-gray-500 hover:text-white transition-colors text-sm"
         >
           Weitere Nachricht senden
@@ -57,6 +70,7 @@ const ContactForm: React.FC = () => {
   return (
     <form onSubmit={handleSubmit} className="max-w-lg mx-auto">
       <div className="space-y-5">
+        {/* Name + Email */}
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
           <div>
             <label className="block text-sm text-gray-500 mb-1.5">Name *</label>
@@ -82,6 +96,31 @@ const ContactForm: React.FC = () => {
           </div>
         </div>
 
+        {/* Company + Website */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-5">
+          <div>
+            <label className="block text-sm text-gray-500 mb-1.5">Firma</label>
+            <input
+              type="text"
+              value={formData.company}
+              onChange={e => setFormData(prev => ({ ...prev, company: e.target.value }))}
+              className="w-full px-4 py-3 rounded-xl bg-zinc-800/60 border border-white/10 text-white placeholder-gray-600 focus:border-cyan-500 focus:outline-none transition-colors"
+              placeholder="Dein Unternehmen"
+            />
+          </div>
+          <div>
+            <label className="block text-sm text-gray-500 mb-1.5">Website</label>
+            <input
+              type="url"
+              value={formData.website}
+              onChange={e => setFormData(prev => ({ ...prev, website: e.target.value }))}
+              className="w-full px-4 py-3 rounded-xl bg-zinc-800/60 border border-white/10 text-white placeholder-gray-600 focus:border-cyan-500 focus:outline-none transition-colors"
+              placeholder="www.deineseite.de"
+            />
+          </div>
+        </div>
+
+        {/* Phone */}
         <div>
           <label className="block text-sm text-gray-500 mb-1.5">Telefon</label>
           <input
@@ -93,6 +132,7 @@ const ContactForm: React.FC = () => {
           />
         </div>
 
+        {/* Message */}
         <div>
           <label className="block text-sm text-gray-500 mb-1.5">Nachricht</label>
           <textarea
@@ -118,6 +158,19 @@ const ContactForm: React.FC = () => {
           </span>
         </label>
       </div>
+
+      {error && (
+        <div className="mt-5 p-4 rounded-xl bg-red-500/10 border border-red-500/20 flex items-start gap-3">
+          <AlertCircle className="w-5 h-5 text-red-400 shrink-0 mt-0.5" />
+          <div>
+            <p className="text-red-400 text-sm font-medium">Nachricht konnte nicht gesendet werden.</p>
+            <p className="text-gray-500 text-xs mt-1">
+              Bitte versuche es erneut oder schreib uns direkt an{' '}
+              <a href="mailto:info@workwithjpr.com" className="text-cyan-400 hover:underline">info@workwithjpr.com</a>
+            </p>
+          </div>
+        </div>
+      )}
 
       <button
         type="submit"
