@@ -21,15 +21,6 @@ const PortfolioSection: React.FC = () => {
       image: '/portfolio/ropefx.png',
       result: 'Professionelle Positionierung mit klaren Services und direkter Kontaktaufnahme',
     },
-    {
-      title: 'Praxis Stefan Datt',
-      type: 'Gesundheit & Physiotherapie',
-      desc: 'Physiotherapie-Praxis in Charlottenburg. Warme Farben, Team-Vorstellung, Leistungsübersicht und Galerie mit echten Praxisfotos.',
-      tags: ['Website', 'Galerie', 'Team-Seite', 'Responsive Design'],
-      url: 'https://praxis-stefan-datt.vercel.app',
-      image: '/portfolio/praxis-stefan-datt.png',
-      result: 'Authentischer Webauftritt mit echten Fotos, Team-Profilen und allen Leistungen',
-    },
   ];
 
   return (
@@ -53,14 +44,16 @@ const PortfolioSection: React.FC = () => {
                   href={p.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className={`relative block overflow-hidden ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}
+                  className={`relative block overflow-hidden bg-zinc-800 ${idx % 2 === 1 ? 'lg:col-start-2' : ''}`}
                 >
-                  <img
-                    src={p.image}
-                    alt={p.title}
-                    className="w-full h-full object-cover object-top min-h-[240px] lg:min-h-[360px] group-hover:scale-105 transition-transform duration-500"
-                    loading="lazy"
-                  />
+                  <div className="aspect-[16/10]">
+                    <img
+                      src={p.image}
+                      alt={p.title}
+                      className="w-full h-full object-cover object-center group-hover:scale-105 transition-transform duration-500"
+                      loading="lazy"
+                    />
+                  </div>
                   <div className="absolute inset-0 bg-gradient-to-t from-black/40 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-end justify-center pb-6">
                     <span className="text-white text-sm font-semibold flex items-center gap-1.5">
                       Live ansehen <ExternalLink className="w-3.5 h-3.5" />
