@@ -11,7 +11,7 @@ const FAQSection: React.FC = () => {
     },
     {
       q: 'Wie lange dauert es, bis meine Website fertig ist?',
-      a: 'Eine einfache Website ist in 2–3 Wochen fertig. Komplexere Projekte mit Shop oder individuellen Funktionen dauern 4–8 Wochen. Du bekommst vorab einen klaren Zeitplan.'
+      a: 'Eine einfache Website ist in wenigen Tagen fertig. Komplexere Projekte mit Shop oder individuellen Funktionen dauern 1–2 Wochen. Kein monatelanges Warten — wir setzen schnell um.'
     },
     {
       q: 'Brauche ich technisches Wissen?',
@@ -26,8 +26,12 @@ const FAQSection: React.FC = () => {
       a: 'Ja, definitiv. Ob Redesign, Performance-Optimierung oder neue Funktionen — wir schauen uns an, was du hast, und machen daraus etwas Modernes.'
     },
     {
+      q: 'Nutzt ihr WordPress?',
+      a: 'Nein. Wir bauen moderne Websites mit React und aktueller Webtechnologie. Das Ergebnis: schnellere Ladezeiten, bessere Performance und keine Abhängigkeit von Plugins oder CMS-Updates, die kaputtgehen.'
+    },
+    {
       q: 'Arbeitet ihr nur mit Unternehmen in Berlin?',
-      a: 'Wir sind in Berlin ansässig und lieben es, lokale Unternehmen zu unterstützen. Aber wir arbeiten auch remote — der Standort spielt für digitale Projekte keine Rolle.'
+      a: 'Wir sind in Berlin ansässig und spezialisiert auf lokale Unternehmen. Aber wir arbeiten auch remote — der Standort spielt für digitale Projekte keine Rolle.'
     }
   ];
 

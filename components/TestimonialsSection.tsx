@@ -7,13 +7,13 @@ const TestimonialsSection: React.FC = () => {
       name: 'Michael Nüske',
       company: 'ropeFX — Industriekletterer Berlin',
       logo: '/logos/ropefx.png',
-      quote: 'Jan hat genau verstanden, was wir brauchen. Unsere neue Website bringt uns jetzt regelmäßig Anfragen — und sieht dabei professionell aus. Die Zusammenarbeit war unkompliziert und schnell.',
+      quote: 'Die Website stand innerhalb weniger Tage. Seitdem bekommen wir regelmäßig Anfragen darüber — und sie sieht richtig professionell aus. Unkompliziert und auf den Punkt.',
     },
     {
       name: 'Sven Markulla',
       company: 'Muay Thai Subyen e.V.',
       logo: '/logos/muay-thai-subyen.png',
-      quote: 'Vorher hatten wir keine richtige Online-Präsenz. Jetzt haben wir eine Website mit Trainingsplan und Mitgliederverwaltung — alles aus einer Hand. Unsere Mitglieder sind begeistert.',
+      quote: 'Innerhalb einer Woche hatten wir eine komplette Website mit Trainingsplan und Mitgliederverwaltung — inklusive Backend. Das hätte ich so schnell nicht erwartet.',
     },
   ];
 
