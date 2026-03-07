@@ -124,7 +124,7 @@ const App: React.FC = () => {
             <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
               Webdesign für lokale Unternehmen in Berlin.
               <br className="hidden md:block" />
-              <span className="text-white font-semibold">Erstes Mockup kostenlos — du siehst vorab, was du bekommst.</span>
+              <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
@@ -133,7 +133,7 @@ const App: React.FC = () => {
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
                 style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
               >
-                Kostenloses Mockup anfragen
+                Kostenloser Entwurf anfragen
               </button>
               <p className="text-gray-500 text-sm">Aktuell freie Kapazitäten — Projekt noch diesen Monat starten</p>
             </div>
@@ -153,7 +153,7 @@ const App: React.FC = () => {
           <div className="container mx-auto max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
-              <p className="text-xl text-gray-400">Buch dir 30 Minuten — wir besprechen dein Projekt und du bekommst ein erstes Mockup kostenlos.</p>
+              <p className="text-xl text-gray-400">Buch dir 30 Minuten — wir besprechen dein Projekt und du bekommst einen ersten Entwurf kostenlos.</p>
             </div>
 
             <div className="rounded-2xl overflow-hidden border border-white/10">
@@ -230,7 +230,7 @@ const App: React.FC = () => {
                 </button>
               ))}
               <button onClick={scrollToForm} className="ml-2 px-5 py-2 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm">
-                Kostenloses Mockup
+                Kostenloser Entwurf
               </button>
             </nav>
 

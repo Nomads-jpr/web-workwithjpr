@@ -95,7 +95,7 @@ const PricingSection: React.FC<Props> = ({ scrollToForm }) => {
                     : 'bg-zinc-700 text-white hover:bg-zinc-600'
                 }`}
               >
-                Projekt besprechen
+                Kostenloser Entwurf anfragen
               </button>
             </div>
           ))}
