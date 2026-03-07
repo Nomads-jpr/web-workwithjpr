@@ -3,6 +3,14 @@ import React, { useState, useEffect } from 'react';
 const GA_ID = 'G-0EETZ8V1K4';
 const FB_PIXEL_ID = '842051572153086';
 
+declare global {
+  interface Window {
+    dataLayer: unknown[];
+    fbq?: (...args: unknown[]) => void;
+    _fbq?: (...args: unknown[]) => void;
+  }
+}
+
 function loadGoogleAnalytics() {
   if (document.getElementById('ga-script')) return;
   const script = document.createElement('script');
@@ -19,44 +27,31 @@ function loadGoogleAnalytics() {
 
 function loadFacebookPixel() {
   if (window.fbq) return;
-  const f = window;
-  const n = (f.fbq = function (...args: unknown[]) {
-    if (n.callMethod) {
-      n.callMethod.apply(n, args);
+
+  /* eslint-disable @typescript-eslint/no-explicit-any */
+  const fbq = function (...args: unknown[]) {
+    if ((fbq as any).callMethod) {
+      (fbq as any).callMethod(...args);
     } else {
-      n.queue.push(args);
+      (fbq as any).queue.push(args);
     }
-  }) as FbqFunction;
-  if (!f._fbq) f._fbq = n;
-  n.push = n;
-  n.loaded = true;
-  n.version = '2.0';
-  n.queue = [] as unknown[][];
+  } as any;
+  fbq.push = fbq;
+  fbq.loaded = true;
+  fbq.version = '2.0';
+  fbq.queue = [];
+  /* eslint-enable @typescript-eslint/no-explicit-any */
+
+  window.fbq = fbq;
+  window._fbq = fbq;
 
   const script = document.createElement('script');
   script.async = true;
   script.src = 'https://connect.facebook.net/en_US/fbevents.js';
   document.head.appendChild(script);
 
-  window.fbq('init', FB_PIXEL_ID);
-  window.fbq('track', 'PageView');
-}
-
-interface FbqFunction {
-  (...args: unknown[]): void;
-  callMethod?: (...args: unknown[]) => void;
-  queue: unknown[][];
-  push: (...args: unknown[]) => void;
-  loaded: boolean;
-  version: string;
-}
-
-declare global {
-  interface Window {
-    dataLayer: unknown[];
-    fbq: FbqFunction;
-    _fbq: FbqFunction;
-  }
+  window.fbq!('init', FB_PIXEL_ID);
+  window.fbq!('track', 'PageView');
 }
 
 function loadTrackingScripts() {
