@@ -1,7 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { ArrowUp } from 'lucide-react';
 import ContactForm from './components/MultiStepForm';
-import ClientLogos from './components/ClientLogos';
 import AboutSection from './components/AboutSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import ServicesSection from './components/ServicesSection';
@@ -79,9 +78,13 @@ const App: React.FC = () => {
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
         <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-emerald-600/15 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
         <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[80px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
-        <div className="absolute inset-0 opacity-[0.02]" style={{
+        <div className="absolute inset-0 opacity-[0.04]" style={{
           backgroundImage: `linear-gradient(rgba(255,255,255,0.1) 1px, transparent 1px), linear-gradient(90deg, rgba(255,255,255,0.1) 1px, transparent 1px)`,
           backgroundSize: '50px 50px'
+        }} />
+        <div className="absolute inset-0 opacity-[0.03]" style={{
+          backgroundImage: `url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E")`,
+          backgroundSize: '128px 128px'
         }} />
       </div>
 
@@ -119,12 +122,11 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        <ClientLogos />
+        <TestimonialsSection />
         <ProblemSection />
         <ServicesSection scrollToForm={scrollToForm} />
         <HowItWorksSection />
         <PortfolioSection />
-        <TestimonialsSection />
         <AboutSection scrollToForm={scrollToForm} />
         <PricingSection scrollToForm={scrollToForm} />
 
@@ -167,7 +169,7 @@ const App: React.FC = () => {
         <footer className="py-20 px-4 bg-black border-t border-white/5">
           <div className="container mx-auto max-w-6xl">
             <div className="flex justify-center mb-10">
-              <img src="/JPR1.png" alt="JPR Consulting" className="w-28 h-28 md:w-36 md:h-36 opacity-80 hover:opacity-100 transition-opacity duration-300 drop-shadow-[0_0_30px_rgba(255,255,255,0.25)]" />
+              <img src="/JPR1.png" alt="JPR Consulting" className="w-28 h-28 md:w-36 md:h-36 rounded-full opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
 
             {/* Site Links */}
@@ -198,14 +200,14 @@ const App: React.FC = () => {
         <div className="fixed top-0 left-0 right-0 z-50 bg-black/98 backdrop-blur-2xl border-b border-white/5 shadow-2xl animate-slide-up">
           <div className="container mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
             <div className="hidden md:flex items-center gap-5">
-              <img src="/JPR1.png" alt="JPR" className="w-14 h-14 opacity-90 drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]" />
+              <img src="/JPR1.png" alt="JPR" className="w-14 h-14 rounded-full opacity-90" />
               <div className="flex flex-col">
                 <span className="text-white font-bold text-sm">JPR Consulting</span>
                 <span className="text-gray-400 text-xs">Web & Digitale Lösungen</span>
               </div>
             </div>
             <div className="md:hidden flex items-center gap-3">
-              <img src="/JPR1.png" alt="JPR" className="w-12 h-12 opacity-90" />
+              <img src="/JPR1.png" alt="JPR" className="w-12 h-12 rounded-full opacity-90" />
             </div>
             <button onClick={scrollToForm} className="px-5 py-2.5 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm md:text-base">
               Kostenlos anfragen
