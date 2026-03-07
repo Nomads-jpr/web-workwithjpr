@@ -22,7 +22,7 @@ const TestimonialsSection: React.FC = () => {
       <div className="container mx-auto max-w-5xl">
         <div className="text-center mb-14">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Kundenstimmen</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Was unsere Kunden sagen</h2>
+          <h2 className="text-3xl md:text-4xl font-bold mb-4">Das sagen unsere Kunden</h2>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">

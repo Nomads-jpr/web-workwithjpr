@@ -147,7 +147,7 @@ const App: React.FC = () => {
           <div className="container mx-auto max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
-              <p className="text-xl text-gray-400">Buch direkt ein kostenloses Erstgespräch.</p>
+              <p className="text-xl text-gray-400">30 Minuten, kostenlos und unverbindlich.</p>
             </div>
 
             <div className="rounded-2xl overflow-hidden border border-white/10">

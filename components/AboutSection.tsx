@@ -26,10 +26,10 @@ const AboutSection: React.FC<Props> = ({ scrollToForm }) => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Hi, ich bin Jan.</h2>
             <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
               <p>
-                Seit über 7 Jahren baue ich digitale Produkte — von Websites für lokale Unternehmen bis hin zu komplexen Automatisierungssystemen für internationale Firmen.
+                Seit über 7 Jahren baue ich digitale Produkte — von Websites für lokale Unternehmen bis zu Automatisierungssystemen für internationale Firmen.
               </p>
               <p>
-                Was mich antreibt: Wenn ich sehe, wie ein Handwerker plötzlich über seine Website Anfragen bekommt. Oder eine Praxis ihre Terminbuchung endlich online hat und das Telefon nicht mehr ständig klingelt.
+                Was mich antreibt: Wenn ein Handwerker plötzlich über seine Website Anfragen bekommt. Oder eine Praxis ihre Terminbuchung online hat und das Telefon nicht mehr ständig klingelt.
               </p>
               <p className="text-white font-medium">
                 Ich spreche deine Sprache — nicht die von Entwicklern. Du sagst mir, was dein Business braucht, und ich baue es.

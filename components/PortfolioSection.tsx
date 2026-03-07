@@ -19,7 +19,7 @@ const PortfolioSection: React.FC = () => {
       tags: ['Website', 'SEO', 'Google-Optimierung', 'Lead Generation'],
       url: 'https://ropefx.vercel.app',
       image: '/portfolio/ropefx.png',
-      result: 'Professionelle Positionierung mit klaren Services und direkter Kontaktaufnahme',
+      result: 'Regelmäßige Anfragen über die Website seit Launch',
     },
   ];
 
@@ -28,8 +28,8 @@ const PortfolioSection: React.FC = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Portfolio</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Echte Projekte, echte Ergebnisse</h2>
-          <p className="text-gray-400 text-lg">Websites, die wir für Unternehmen in Berlin gebaut haben.</p>
+          <h2 className="text-3xl md:text-5xl font-bold mb-4">Das haben wir gebaut</h2>
+          <p className="text-gray-400 text-lg">Aktuelle Projekte für lokale Unternehmen in Berlin.</p>
         </div>
 
         <div className="space-y-12">

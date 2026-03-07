@@ -10,7 +10,7 @@ const PricingSection: React.FC<Props> = ({ scrollToForm }) => {
     {
       name: 'Starter',
       price: 'ab 1.500',
-      desc: 'Perfekt für den Einstieg',
+      desc: 'Für den Start',
       features: [
         'One-Page Website',
         'Mobil optimiert',
@@ -60,7 +60,7 @@ const PricingSection: React.FC<Props> = ({ scrollToForm }) => {
         <div className="text-center mb-16">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Preise</p>
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Transparent und fair</h2>
-          <p className="text-gray-400 text-lg">Jedes Projekt ist individuell. Im Gespräch erstellen wir ein unverbindliches Angebot.</p>
+          <p className="text-gray-400 text-lg">Jedes Projekt ist anders. Im Gespräch erstellen wir dir ein Angebot — kostenlos und unverbindlich.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

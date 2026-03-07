@@ -7,13 +7,13 @@ const HowItWorksSection: React.FC = () => {
       icon: MessageSquare,
       step: '01',
       title: 'Kostenloses Erstgespräch',
-      desc: 'Wir besprechen dein Geschäft, deine Ziele und was du brauchst. 30 Minuten, unverbindlich, ohne Verpflichtung.'
+      desc: 'Wir besprechen dein Geschäft, deine Ziele und was du brauchst. 30 Minuten, unverbindlich.'
     },
     {
       icon: PenTool,
       step: '02',
       title: 'Konzept & Design',
-      desc: 'Du bekommst ein maßgeschneidertes Konzept mit Designvorschlag, klarer Kostenaufstellung und Zeitplan.'
+      desc: 'Du bekommst ein Konzept mit Designvorschlag, Kostenaufstellung und Zeitplan.'
     },
     {
       icon: Rocket,

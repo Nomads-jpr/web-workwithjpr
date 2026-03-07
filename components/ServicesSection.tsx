@@ -43,7 +43,7 @@ const ServicesSection: React.FC<Props> = ({ scrollToForm }) => {
         <div className="text-center mb-16">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Unsere Leistungen</p>
           <h2 className="text-3xl md:text-5xl font-bold mb-4">Was wir für dich bauen</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Kein Tech-Jargon — nur Lösungen, die dein Geschäft weiterbringen.</p>
+          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Lösungen, die dein Geschäft weiterbringen.</p>
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
@@ -69,7 +69,7 @@ const ServicesSection: React.FC<Props> = ({ scrollToForm }) => {
 
         <div className="text-center mt-12">
           <button onClick={scrollToForm} className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
-            Welche Lösung passt zu dir? Finde es heraus →
+            Lass uns herausfinden, was du brauchst →
           </button>
         </div>
       </div>

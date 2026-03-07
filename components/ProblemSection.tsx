@@ -5,7 +5,7 @@ const ProblemSection: React.FC = () => {
   const problems = [
     {
       emoji: '😬',
-      text: 'Deine Website sieht aus wie 2015 — und deine Kunden merken das.'
+      text: 'Deine Website sieht veraltet aus — und deine Kunden merken das.'
     },
     {
       emoji: '🔍',
@@ -26,7 +26,7 @@ const ProblemSection: React.FC = () => {
       <div className="container mx-auto max-w-4xl">
         <div className="text-center mb-12">
           <h2 className="text-3xl md:text-4xl font-bold mb-4">Kennst du das?</h2>
-          <p className="text-gray-400 text-lg">Die meisten lokalen Unternehmen verlieren täglich Kunden — ohne es zu merken.</p>
+          <p className="text-gray-400 text-lg">Viele lokale Unternehmen verlieren Kunden — ohne es zu merken.</p>
         </div>
 
         <div className="space-y-4 mb-10">
@@ -41,7 +41,7 @@ const ProblemSection: React.FC = () => {
         <div className="p-6 rounded-xl bg-red-500/10 border border-red-500/30 flex items-start gap-4">
           <AlertTriangle className="w-6 h-6 text-red-400 flex-shrink-0 mt-0.5" />
           <p className="text-red-300 text-sm leading-relaxed">
-            <span className="font-bold">Die Realität:</span> 75% aller Kunden googeln erst, bevor sie zum Arzt, Friseur oder Restaurant gehen. Wer online nicht überzeugt, verliert — jeden Tag.
+            <span className="font-bold">Fakt:</span> 75% aller Kunden googeln, bevor sie zum Arzt, Friseur oder Restaurant gehen. Wer online nicht überzeugt, verliert.
           </p>
         </div>
       </div>
