@@ -7,10 +7,10 @@ const PortfolioSection: React.FC = () => {
       title: 'Muay Thai Subyen e.V.',
       type: 'Sport & Verein',
       desc: 'Berlins einziges durch die Thailand Sports Authority zertifiziertes Muay Thai Gym. Dark-Theme mit Neon-Akzenten, Trainingsplan und Mitgliederverwaltung.',
-      tags: ['Website', 'Backend-System', 'Mitgliederverwaltung'],
+      tags: ['Website', 'Mitgliederverwaltung', 'Online-Verträge'],
       url: 'https://muay-thai-subyen.vercel.app',
       image: '/portfolio/muay-thai-subyen.png',
-      result: 'Komplette Online-Präsenz mit Trainingszeiten, Mitglieder-Backend und Kontaktformular',
+      result: 'Trainingszeiten, Mitgliederverwaltung und Online-Vertragsabschluss — alles in einer Woche umgesetzt',
     },
     {
       title: 'ropeFX — Industriekletterer Berlin',
