@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ArrowUp } from 'lucide-react';
-import ContactForm from './components/MultiStepForm';
+import { ArrowUp, Menu, X } from 'lucide-react';
 import AboutSection from './components/AboutSection';
 import HowItWorksSection from './components/HowItWorksSection';
 import ServicesSection from './components/ServicesSection';
@@ -15,9 +14,17 @@ import CookieBanner from './components/CookieBanner';
 
 type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY';
 
+const navLinks = [
+  { label: 'Leistungen', id: 'services' },
+  { label: 'Portfolio', id: 'portfolio' },
+  { label: 'Preise', id: 'pricing' },
+  { label: 'Über mich', id: 'about' },
+];
+
 const App: React.FC = () => {
   const [showScrollTop, setShowScrollTop] = useState(false);
   const [showStickyCTA, setShowStickyCTA] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentView, setCurrentView] = useState<ViewState>('HOME');
 
   useEffect(() => {
@@ -54,8 +61,13 @@ const App: React.FC = () => {
     }
   }, [currentView]);
 
+  const scrollToSection = (id: string) => {
+    document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
+    setMobileMenuOpen(false);
+  };
+
   const scrollToForm = () => {
-    document.getElementById('consultation-form')?.scrollIntoView({ behavior: 'smooth' });
+    scrollToSection('consultation-form');
   };
 
   const scrollToTop = () => {
@@ -124,42 +136,37 @@ const App: React.FC = () => {
 
         <TestimonialsSection />
         <ProblemSection />
-        <ServicesSection scrollToForm={scrollToForm} />
+        <div id="services"><ServicesSection scrollToForm={scrollToForm} /></div>
         <HowItWorksSection />
-        <PortfolioSection />
-        <AboutSection scrollToForm={scrollToForm} />
-        <PricingSection scrollToForm={scrollToForm} />
+        <div id="portfolio"><PortfolioSection /></div>
+        <div id="about"><AboutSection scrollToForm={scrollToForm} /></div>
+        <div id="pricing"><PricingSection scrollToForm={scrollToForm} /></div>
 
         {/* Consultation Section */}
         <section id="consultation-form" className="py-24 px-4 relative">
-          <div className="container mx-auto max-w-6xl">
-            <div className="text-center mb-16">
+          <div className="container mx-auto max-w-3xl">
+            <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
-              <p className="text-xl text-gray-400">Buch direkt einen Termin oder schreib uns deine Projektidee.</p>
+              <p className="text-xl text-gray-400">Buch direkt ein kostenloses Erstgespräch.</p>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
-              {/* Calendly */}
-              <div>
-                <h3 className="text-lg font-bold mb-4 text-center">Direkt einen Termin buchen</h3>
-                <div className="rounded-2xl overflow-hidden border border-white/10">
-                  <iframe
-                    src="https://calendly.com/workwithjpr/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=06b6d4"
-                    width="100%"
-                    height="700"
-                    frameBorder="0"
-                    title="Termin buchen"
-                    className="w-full"
-                  />
-                </div>
-              </div>
-
-              {/* Contact Form */}
-              <div>
-                <h3 className="text-lg font-bold mb-4 text-center">Oder schreib uns deine Projektidee</h3>
-                <ContactForm />
-              </div>
+            <div className="rounded-2xl overflow-hidden border border-white/10">
+              <iframe
+                src="https://calendly.com/workwithjpr/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=06b6d4"
+                width="100%"
+                height="700"
+                frameBorder="0"
+                title="Termin buchen"
+                className="w-full"
+              />
             </div>
+
+            <p className="text-center text-gray-500 text-sm mt-6">
+              Oder schreib uns direkt an{' '}
+              <a href="mailto:info@workwithjpr.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                info@workwithjpr.com
+              </a>
+            </p>
           </div>
         </section>
 
@@ -195,24 +202,63 @@ const App: React.FC = () => {
         </footer>
       </div>
 
-      {/* Sticky CTA */}
+      {/* Sticky Navigation */}
       {showStickyCTA && (
         <div className="fixed top-0 left-0 right-0 z-50 bg-black/98 backdrop-blur-2xl border-b border-white/5 shadow-2xl animate-slide-up">
-          <div className="container mx-auto max-w-6xl px-4 py-4 flex items-center justify-between">
-            <div className="hidden md:flex items-center gap-5">
-              <img src="/JPR1.png" alt="JPR" className="w-14 h-14 rounded-full opacity-90" />
-              <div className="flex flex-col">
-                <span className="text-white font-bold text-sm">JPR Consulting</span>
-                <span className="text-gray-400 text-xs">Web & Digitale Lösungen</span>
+          <div className="container mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
+            {/* Logo + Name */}
+            <button onClick={scrollToTop} className="flex items-center gap-4 group">
+              <img src="/JPR1.png" alt="JPR" className="w-10 h-10 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
+              <span className="hidden md:block text-white font-bold text-sm">JPR Consulting</span>
+            </button>
+
+            {/* Desktop Nav */}
+            <nav className="hidden md:flex items-center gap-6">
+              {navLinks.map((link) => (
+                <button
+                  key={link.id}
+                  onClick={() => scrollToSection(link.id)}
+                  className="text-gray-400 hover:text-white text-sm font-medium transition-colors"
+                >
+                  {link.label}
+                </button>
+              ))}
+              <button onClick={scrollToForm} className="ml-2 px-5 py-2 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm">
+                Kostenlos anfragen
+              </button>
+            </nav>
+
+            {/* Mobile: CTA + Hamburger */}
+            <div className="md:hidden flex items-center gap-3">
+              <button onClick={scrollToForm} className="px-4 py-2 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all text-sm shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+                Anfragen
+              </button>
+              <button
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="p-2 text-gray-400 hover:text-white transition-colors"
+                aria-label="Menü"
+              >
+                {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
+              </button>
+            </div>
+          </div>
+
+          {/* Mobile Menu Drawer */}
+          {mobileMenuOpen && (
+            <div className="md:hidden border-t border-white/5 bg-black/98 backdrop-blur-2xl">
+              <div className="container mx-auto max-w-6xl px-4 py-4 flex flex-col gap-3">
+                {navLinks.map((link) => (
+                  <button
+                    key={link.id}
+                    onClick={() => scrollToSection(link.id)}
+                    className="text-gray-400 hover:text-white text-base font-medium transition-colors text-left py-2 border-b border-white/5 last:border-0"
+                  >
+                    {link.label}
+                  </button>
+                ))}
               </div>
             </div>
-            <div className="md:hidden flex items-center gap-3">
-              <img src="/JPR1.png" alt="JPR" className="w-12 h-12 rounded-full opacity-90" />
-            </div>
-            <button onClick={scrollToForm} className="px-5 py-2.5 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm md:text-base">
-              Kostenlos anfragen
-            </button>
-          </div>
+          )}
         </div>
       )}
 

@@ -12,7 +12,7 @@ const TestimonialsSection: React.FC = () => {
     {
       name: 'Sven Markulla',
       company: 'Muay Thai Subyen e.V.',
-      logo: '/logos/muay-thai-subyen.jpg',
+      logo: '/logos/muay-thai-subyen.png',
       quote: 'Vorher hatten wir keine richtige Online-Präsenz. Jetzt haben wir eine Website mit Trainingsplan und Mitgliederverwaltung — alles aus einer Hand. Unsere Mitglieder sind begeistert.',
     },
   ];
