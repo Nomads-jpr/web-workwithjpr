@@ -11,6 +11,7 @@ import FAQSection from './components/FAQSection';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import CookieBanner from './components/CookieBanner';
+import SocialProofStrip from './components/SocialProofStrip';
 
 type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY';
 
@@ -114,40 +115,46 @@ const App: React.FC = () => {
 
             <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-                Websites, die Kunden bringen
+                Deine neue Website —
               </span>
+              <br />
+              <span className="text-white">in Tagen, nicht Monaten.</span>
             </h1>
 
             <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              Moderne Webauftritte für lokale Unternehmen in Berlin.
+              Webdesign für lokale Unternehmen in Berlin.
               <br className="hidden md:block" />
-              <span className="text-white font-semibold">Kein Tech-Jargon. Nur Ergebnisse.</span>
+              <span className="text-white font-semibold">Erstes Mockup kostenlos — du siehst vorab, was du bekommst.</span>
             </p>
 
-            <button
-              onClick={scrollToForm}
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 animate-slide-up hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
-              style={{ animationDelay: '0.3s', backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
-            >
-              Kostenloses Erstgespräch buchen
-            </button>
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+              <button
+                onClick={scrollToForm}
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+              >
+                Kostenloses Mockup anfragen
+              </button>
+              <p className="text-gray-500 text-sm">Aktuell freie Kapazitäten — Projekt noch diesen Monat starten</p>
+            </div>
           </div>
         </header>
 
-        <TestimonialsSection />
+        <SocialProofStrip />
         <ProblemSection />
         <div id="services"><ServicesSection scrollToForm={scrollToForm} /></div>
         <HowItWorksSection />
         <div id="portfolio"><PortfolioSection /></div>
-        <div id="about"><AboutSection scrollToForm={scrollToForm} /></div>
+        <TestimonialsSection />
         <div id="pricing"><PricingSection scrollToForm={scrollToForm} /></div>
+        <div id="about"><AboutSection scrollToForm={scrollToForm} /></div>
 
         {/* Consultation Section */}
         <section id="consultation-form" className="py-24 px-4 relative">
           <div className="container mx-auto max-w-3xl">
             <div className="text-center mb-12">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
-              <p className="text-xl text-gray-400">30 Minuten, kostenlos und unverbindlich.</p>
+              <p className="text-xl text-gray-400">Buch dir 30 Minuten — wir besprechen dein Projekt und du bekommst ein erstes Mockup kostenlos.</p>
             </div>
 
             <div className="rounded-2xl overflow-hidden border border-white/10">
@@ -224,7 +231,7 @@ const App: React.FC = () => {
                 </button>
               ))}
               <button onClick={scrollToForm} className="ml-2 px-5 py-2 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm">
-                Kostenlos anfragen
+                Kostenloses Mockup
               </button>
             </nav>
 
