@@ -268,7 +268,7 @@ const App: React.FC = () => {
         </button>
       )}
 
-      <CookieBanner onAcceptAll={() => {}} onAcceptNecessary={() => {}} />
+      <CookieBanner />
     </div>
   );
 };
