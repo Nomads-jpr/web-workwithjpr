@@ -8,6 +8,7 @@ import ServicesSection from './components/ServicesSection';
 import ProblemSection from './components/ProblemSection';
 import PricingSection from './components/PricingSection';
 import PortfolioSection from './components/PortfolioSection';
+import TestimonialsSection from './components/TestimonialsSection';
 import FAQSection from './components/FAQSection';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
@@ -123,17 +124,40 @@ const App: React.FC = () => {
         <ServicesSection scrollToForm={scrollToForm} />
         <HowItWorksSection />
         <PortfolioSection />
+        <TestimonialsSection />
         <AboutSection scrollToForm={scrollToForm} />
         <PricingSection scrollToForm={scrollToForm} />
 
-        {/* Form Section */}
+        {/* Consultation Section */}
         <section id="consultation-form" className="py-24 px-4 relative">
           <div className="container mx-auto max-w-6xl">
             <div className="text-center mb-16">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
-              <p className="text-xl text-gray-400">Schreib uns — wir melden uns innerhalb von 24 Stunden.</p>
+              <p className="text-xl text-gray-400">Buch direkt einen Termin oder schreib uns deine Projektidee.</p>
             </div>
-            <ContactForm />
+
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-start">
+              {/* Calendly */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 text-center">Direkt einen Termin buchen</h3>
+                <div className="rounded-2xl overflow-hidden border border-white/10">
+                  <iframe
+                    src="https://calendly.com/workwithjpr/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=06b6d4"
+                    width="100%"
+                    height="700"
+                    frameBorder="0"
+                    title="Termin buchen"
+                    className="w-full"
+                  />
+                </div>
+              </div>
+
+              {/* Contact Form */}
+              <div>
+                <h3 className="text-lg font-bold mb-4 text-center">Oder schreib uns deine Projektidee</h3>
+                <ContactForm />
+              </div>
+            </div>
           </div>
         </section>
 
