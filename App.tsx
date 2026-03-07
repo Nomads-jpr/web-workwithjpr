@@ -93,7 +93,7 @@ const App: React.FC = () => {
               <img
                 src="/JPR1.png"
                 alt="JPR Consulting"
-                className="w-36 h-36 md:w-48 md:h-48 hover:scale-105 transition-all duration-500 drop-shadow-[0_0_50px_rgba(255,255,255,0.5)]"
+                className="w-36 h-36 md:w-48 md:h-48 rounded-full hover:scale-105 transition-all duration-500"
               />
             </div>
 

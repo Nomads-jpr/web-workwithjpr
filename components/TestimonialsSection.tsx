@@ -6,11 +6,13 @@ const TestimonialsSection: React.FC = () => {
     {
       name: 'Michael Nüske',
       company: 'ropeFX — Industriekletterer Berlin',
+      logo: '/logos/ropefx.png',
       quote: 'Jan hat genau verstanden, was wir brauchen. Unsere neue Website bringt uns jetzt regelmäßig Anfragen — und sieht dabei professionell aus. Die Zusammenarbeit war unkompliziert und schnell.',
     },
     {
       name: 'Sven Markulla',
       company: 'Muay Thai Subyen e.V.',
+      logo: '/logos/muay-thai-subyen.png',
       quote: 'Vorher hatten wir keine richtige Online-Präsenz. Jetzt haben wir eine Website mit Trainingsplan und Mitgliederverwaltung — alles aus einer Hand. Unsere Mitglieder sind begeistert.',
     },
   ];
@@ -33,9 +35,12 @@ const TestimonialsSection: React.FC = () => {
               <p className="text-gray-300 leading-relaxed text-lg mb-6 italic">
                 "{t.quote}"
               </p>
-              <div>
-                <p className="text-white font-bold">{t.name}</p>
-                <p className="text-gray-500 text-sm">{t.company}</p>
+              <div className="flex items-center gap-4">
+                <img src={t.logo} alt={t.company} className="w-10 h-10 object-contain rounded-lg" />
+                <div>
+                  <p className="text-white font-bold">{t.name}</p>
+                  <p className="text-gray-500 text-sm">{t.company}</p>
+                </div>
               </div>
             </div>
           ))}
