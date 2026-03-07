@@ -12,7 +12,7 @@ const TestimonialsSection: React.FC = () => {
     {
       name: 'Sven Markulla',
       company: 'Muay Thai Subyen e.V.',
-      logo: '/logos/muay-thai-subyen.png',
+      logo: '/logos/muay-thai-subyen.jpg',
       quote: 'Vorher hatten wir keine richtige Online-Präsenz. Jetzt haben wir eine Website mit Trainingsplan und Mitgliederverwaltung — alles aus einer Hand. Unsere Mitglieder sind begeistert.',
     },
   ];
@@ -32,11 +32,11 @@ const TestimonialsSection: React.FC = () => {
               className="p-8 rounded-2xl bg-zinc-800/40 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 relative"
             >
               <Quote className="w-8 h-8 text-cyan-500/20 absolute top-6 right-6" />
-              <p className="text-gray-300 leading-relaxed text-lg mb-6 italic">
-                "{t.quote}"
+              <p className="text-gray-300 leading-relaxed text-lg mb-6 italic pr-8">
+                &bdquo;{t.quote}&ldquo;
               </p>
               <div className="flex items-center gap-4">
-                <img src={t.logo} alt={t.company} className="w-10 h-10 object-contain rounded-lg" />
+                <img src={t.logo} alt={t.company} className="w-14 h-14 object-contain rounded-xl flex-shrink-0" />
                 <div>
                   <p className="text-white font-bold">{t.name}</p>
                   <p className="text-gray-500 text-sm">{t.company}</p>

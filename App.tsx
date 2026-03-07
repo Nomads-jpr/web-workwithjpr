@@ -96,7 +96,7 @@ const App: React.FC = () => {
               <img
                 src="/JPR1.png"
                 alt="JPR Consulting"
-                className="w-36 h-36 md:w-48 md:h-48 rounded-full hover:scale-105 transition-all duration-500"
+                className="w-44 h-44 md:w-56 md:h-56 rounded-full hover:scale-105 transition-all duration-500"
               />
             </div>
 
@@ -114,8 +114,8 @@ const App: React.FC = () => {
 
             <button
               onClick={scrollToForm}
-              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 bg-cyan-500 rounded-lg hover:bg-cyan-400 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 animate-slide-up hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.6)]"
-              style={{ animationDelay: '0.3s' }}
+              className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 animate-slide-up hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
+              style={{ animationDelay: '0.3s', backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
             >
               Kostenloses Erstgespräch buchen
             </button>
