@@ -11,7 +11,7 @@ import FAQSection from './components/FAQSection';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import CookieBanner from './components/CookieBanner';
-import SocialProofStrip from './components/SocialProofStrip';
+
 
 type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY';
 
@@ -140,7 +140,6 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        <SocialProofStrip />
         <ProblemSection />
         <div id="services"><ServicesSection scrollToForm={scrollToForm} /></div>
         <HowItWorksSection />
