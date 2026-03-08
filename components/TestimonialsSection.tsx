@@ -29,14 +29,16 @@ const TestimonialsSection: React.FC = () => {
           {testimonials.map((t) => (
             <div
               key={t.name}
-              className="p-8 rounded-2xl bg-zinc-800/40 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 relative"
+              className="p-8 rounded-2xl bg-zinc-800/40 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 relative flex flex-col"
             >
               <Quote className="w-8 h-8 text-cyan-500/20 absolute top-6 right-6" />
-              <p className="text-gray-300 leading-relaxed text-lg mb-6 italic pr-8">
+              <p className="text-gray-300 leading-relaxed text-lg italic pr-8 flex-1">
                 &bdquo;{t.quote}&ldquo;
               </p>
-              <div className="flex items-center gap-4">
-                <img src={t.logo} alt={t.company} className="w-14 h-14 object-contain rounded-xl flex-shrink-0" />
+              <div className="flex items-center gap-4 mt-6">
+                <div className="w-16 h-16 flex-shrink-0 flex items-center justify-center">
+                  <img src={t.logo} alt={t.company} className="max-w-full max-h-full object-contain" />
+                </div>
                 <div>
                   <p className="text-white font-bold">{t.name}</p>
                   <p className="text-gray-500 text-sm">{t.company}</p>
