@@ -24,8 +24,8 @@ export default {
           '100%': { opacity: '1' },
         },
         slideUp: {
-          '0%': { transform: 'translateY(20px) scale(0.95)', opacity: '0' },
-          '100%': { transform: 'translateY(0) scale(1)', opacity: '1' },
+          '0%': { transform: 'translateY(20px)', opacity: '0' },
+          '100%': { transform: 'translateY(0)', opacity: '1' },
         },
         slideUpExit: {
           '0%': { transform: 'translateY(0) scale(1)', opacity: '1' },
