@@ -12,8 +12,8 @@ const HowItWorksSection: React.FC = () => {
     {
       icon: PenTool,
       step: '02',
-      title: 'Konzept & Design',
-      desc: 'Du bekommst ein Konzept mit Designvorschlag, Kostenaufstellung und Zeitplan.'
+      title: 'Kostenloser Entwurf',
+      desc: 'Du bekommst einen ersten Entwurf deiner Website — komplett kostenlos und unverbindlich. Erst wenn du zufrieden bist, geht's weiter.'
     },
     {
       icon: Rocket,
