@@ -12,7 +12,7 @@ const ServicesSection: React.FC<Props> = ({ openCalendly }) => {
       title: 'Moderne Website',
       subtitle: 'Dein digitales Schaufenster',
       desc: 'Ein professioneller Online-Auftritt, der Vertrauen schafft und Besucher zu Kunden macht. Mobil optimiert, schnell und modern.',
-      features: ['Responsive Design für alle Geräte', 'Suchmaschinenoptimiert (SEO)', 'Du kannst Inhalte selbst ändern']
+      features: ['Perfekt auf Handy, Tablet und Desktop', 'Wird bei Google gefunden', 'Du kannst Inhalte selbst ändern']
     },
     {
       icon: CalendarCheck,
@@ -33,7 +33,7 @@ const ServicesSection: React.FC<Props> = ({ openCalendly }) => {
       title: 'Online-Shop',
       subtitle: 'Verkaufe deine Produkte online',
       desc: 'Ein eigener Online-Shop, der einfach zu bedienen ist. Sichere Bezahlung, Versandanbindung, mobil optimiert.',
-      features: ['Sichere Zahlungsabwicklung', 'Bestandsverwaltung', 'Mobil optimiertes Einkaufserlebnis']
+      features: ['Sichere Zahlungsabwicklung', 'Bestandsverwaltung', 'Einfacher Bestellprozess']
     }
   ];
 

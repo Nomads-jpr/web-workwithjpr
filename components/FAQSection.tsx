@@ -27,7 +27,7 @@ const FAQSection: React.FC = () => {
     },
     {
       q: 'Nutzt ihr WordPress?',
-      a: 'Nein. Wir bauen moderne Websites mit React und aktueller Webtechnologie. Das Ergebnis: schnellere Ladezeiten, bessere Performance und keine Abhängigkeit von Plugins oder CMS-Updates, die kaputtgehen.'
+      a: 'Nein. Wir nutzen modernere Technik — das bedeutet: schnellere Ladezeiten, bessere Platzierung bei Google und keine Probleme durch veraltete Plugins.'
     },
     {
       q: 'Arbeitet ihr nur mit Unternehmen in Berlin?',

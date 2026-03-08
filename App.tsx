@@ -275,7 +275,7 @@ const App: React.FC = () => {
           <div className="container mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             {/* Logo + Name */}
             <button onClick={scrollToTop} className="flex items-center gap-4 group">
-              <img src="/JPR1.png" alt="JPR" className="w-10 h-10 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
+              <img src="/JPR1.png" alt="JPR" className="w-12 h-12 md:w-10 md:h-10 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
               <span className="hidden md:block text-white font-bold text-sm">JPR Consulting</span>
             </button>
 

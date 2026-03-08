@@ -26,7 +26,7 @@ const AboutSection: React.FC<Props> = ({ openCalendly }) => {
             <h2 className="text-3xl md:text-4xl font-bold mb-6">Hi, ich bin Jan.</h2>
             <div className="space-y-4 text-gray-400 leading-relaxed text-lg">
               <p>
-                Seit über 7 Jahren baue ich digitale Produkte — von Websites für lokale Unternehmen bis zu Automatisierungssystemen für internationale Firmen.
+                Seit über 7 Jahren baue ich Websites und digitale Lösungen — von Websites für lokale Unternehmen bis zu Automatisierungssystemen für internationale Firmen.
               </p>
               <p>
                 Was mich antreibt: Wenn ein Handwerker plötzlich über seine Website Anfragen bekommt. Oder eine Praxis ihre Terminbuchung online hat und das Telefon nicht mehr ständig klingelt.

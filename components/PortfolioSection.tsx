@@ -16,7 +16,7 @@ const PortfolioSection: React.FC = () => {
       title: 'ropeFX — Industriekletterer Berlin',
       type: 'Handwerk & Dienstleistung',
       desc: 'FISAT-zertifiziertes Höhenarbeitsunternehmen. Klare Darstellung aller Services, von Fassadenreinigung bis Drohneninspektion.',
-      tags: ['Website', 'SEO', 'Google-Optimierung', 'Lead Generation'],
+      tags: ['Website', 'Google-Sichtbarkeit', 'Google-Optimierung', 'Kundengewinnung'],
       url: 'https://ropefx.vercel.app',
       image: '/portfolio/ropefx.png',
       result: 'Regelmäßige Anfragen über die Website seit Launch',
