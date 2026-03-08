@@ -13,7 +13,7 @@ const HowItWorksSection: React.FC = () => {
       icon: PenTool,
       step: '02',
       title: 'Kostenloser Entwurf',
-      desc: 'Du bekommst einen ersten Entwurf deiner Website — komplett kostenlos und unverbindlich. Erst wenn du zufrieden bist, geht's weiter.'
+      desc: "Du bekommst einen ersten Entwurf deiner Website — komplett kostenlos und unverbindlich. Erst wenn du zufrieden bist, geht's weiter."
     },
     {
       icon: Rocket,
