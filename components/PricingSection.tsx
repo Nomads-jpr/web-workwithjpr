@@ -2,10 +2,10 @@ import React from 'react';
 import { Check } from 'lucide-react';
 
 interface Props {
-  scrollToForm: () => void;
+  openCalendly: () => void;
 }
 
-const PricingSection: React.FC<Props> = ({ scrollToForm }) => {
+const PricingSection: React.FC<Props> = ({ openCalendly }) => {
   const tiers = [
     {
       name: 'Starter',
@@ -88,12 +88,13 @@ const PricingSection: React.FC<Props> = ({ scrollToForm }) => {
                 ))}
               </ul>
               <button
-                onClick={scrollToForm}
-                className={`w-full py-3 rounded-lg font-semibold transition-all ${
+                onClick={openCalendly}
+                className={`w-full py-3 rounded-lg font-semibold transition-all hover:scale-105 ${
                   tier.highlight
-                    ? 'bg-cyan-500 text-white hover:bg-cyan-400 shadow-[0_0_20px_rgba(6,182,212,0.4)]'
+                    ? 'text-white shadow-[0_0_25px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]'
                     : 'bg-zinc-700 text-white hover:bg-zinc-600'
                 }`}
+                style={tier.highlight ? { backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' } : undefined}
               >
                 Kostenloser Entwurf anfragen
               </button>

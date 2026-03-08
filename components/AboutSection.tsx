@@ -2,10 +2,10 @@ import React from 'react';
 import { Linkedin } from 'lucide-react';
 
 interface Props {
-  scrollToForm: () => void;
+  openCalendly: () => void;
 }
 
-const AboutSection: React.FC<Props> = ({ scrollToForm }) => {
+const AboutSection: React.FC<Props> = ({ openCalendly }) => {
   return (
     <section className="py-20 px-4">
       <div className="container mx-auto max-w-6xl">
@@ -37,7 +37,11 @@ const AboutSection: React.FC<Props> = ({ scrollToForm }) => {
             </div>
 
             <div className="flex items-center gap-6 mt-8">
-              <button onClick={scrollToForm} className="px-6 py-3 bg-cyan-500 text-white font-semibold rounded-lg hover:bg-cyan-400 transition-all hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.4)]">
+              <button
+                onClick={openCalendly}
+                className="px-6 py-3 text-white font-semibold rounded-lg transition-all hover:scale-105 shadow-[0_0_25px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+              >
                 Lass uns reden
               </button>
               <a href="https://www.linkedin.com/in/jan-rojek-b31474a" target="_blank" rel="noopener noreferrer" className="flex items-center gap-2 text-gray-500 hover:text-cyan-400 transition-colors">

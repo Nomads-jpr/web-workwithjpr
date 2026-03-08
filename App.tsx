@@ -11,6 +11,15 @@ import FAQSection from './components/FAQSection';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import CookieBanner from './components/CookieBanner';
+import { useInView } from './hooks/useInView';
+
+declare global {
+  interface Window {
+    Calendly?: {
+      initPopupWidget: (opts: { url: string }) => void;
+    };
+  }
+}
 
 
 type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY';
@@ -35,6 +44,24 @@ const App: React.FC = () => {
     };
     window.addEventListener('scroll', handleScroll);
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  // Load Calendly widget script
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://assets.calendly.com/assets/external/widget.css';
+    link.rel = 'stylesheet';
+    document.head.appendChild(link);
+
+    const script = document.createElement('script');
+    script.src = 'https://assets.calendly.com/assets/external/widget.js';
+    script.async = true;
+    document.head.appendChild(script);
+
+    return () => {
+      document.head.removeChild(link);
+      document.head.removeChild(script);
+    };
   }, []);
 
   useEffect(() => {
@@ -67,8 +94,12 @@ const App: React.FC = () => {
     setMobileMenuOpen(false);
   };
 
-  const scrollToForm = () => {
-    scrollToSection('consultation-form');
+  const openCalendly = () => {
+    if (window.Calendly) {
+      window.Calendly.initPopupWidget({
+        url: 'https://calendly.com/workwithjpr/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=06b6d4'
+      });
+    }
   };
 
   const scrollToTop = () => {
@@ -79,6 +110,19 @@ const App: React.FC = () => {
     setCurrentView(view);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  const section1 = useInView();
+  const section2 = useInView();
+  const section3 = useInView();
+  const section4 = useInView();
+  const section5 = useInView();
+  const section6 = useInView();
+  const section7 = useInView();
+  const section8 = useInView();
+  const section9 = useInView();
+
+  const fadeClass = (inView: boolean) =>
+    `transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`;
 
   if (currentView === 'IMPRINT') return <Imprint onBack={() => navigate('HOME')} />;
   if (currentView === 'PRIVACY') return <Privacy onBack={() => navigate('HOME')} />;
@@ -123,13 +167,13 @@ const App: React.FC = () => {
 
             <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
               Webdesign für lokale Unternehmen in Berlin.
-              <br className="hidden md:block" />
+              <br />
               <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
             </p>
 
             <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
               <button
-                onClick={scrollToForm}
+                onClick={openCalendly}
                 className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
                 style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
               >
@@ -140,43 +184,60 @@ const App: React.FC = () => {
           </div>
         </header>
 
-        <ProblemSection />
-        <div id="services"><ServicesSection scrollToForm={scrollToForm} /></div>
-        <HowItWorksSection />
-        <div id="portfolio"><PortfolioSection /></div>
-        <TestimonialsSection />
-        <div id="pricing"><PricingSection scrollToForm={scrollToForm} /></div>
-        <div id="about"><AboutSection scrollToForm={scrollToForm} /></div>
+        <div ref={section1.ref} className={fadeClass(section1.isInView)}>
+          <ProblemSection />
+        </div>
+        <div ref={section2.ref} className={fadeClass(section2.isInView)} id="services">
+          <ServicesSection openCalendly={openCalendly} />
+        </div>
+        <div ref={section3.ref} className={fadeClass(section3.isInView)}>
+          <HowItWorksSection />
+        </div>
+        <div ref={section4.ref} className={fadeClass(section4.isInView)} id="portfolio">
+          <PortfolioSection />
+        </div>
+        <div ref={section5.ref} className={fadeClass(section5.isInView)}>
+          <TestimonialsSection />
+        </div>
+        <div ref={section6.ref} className={fadeClass(section6.isInView)} id="pricing">
+          <PricingSection openCalendly={openCalendly} />
+        </div>
+        <div ref={section7.ref} className={fadeClass(section7.isInView)} id="about">
+          <AboutSection openCalendly={openCalendly} />
+        </div>
 
         {/* Consultation Section */}
-        <section id="consultation-form" className="py-24 px-4 relative">
-          <div className="container mx-auto max-w-3xl">
-            <div className="text-center mb-12">
+        <div ref={section8.ref} className={fadeClass(section8.isInView)}>
+          <section id="consultation-form" className="py-24 px-4 relative">
+            <div className="container mx-auto max-w-3xl text-center">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
-              <p className="text-xl text-gray-400">Buch dir 30 Minuten — wir besprechen dein Projekt und du bekommst einen ersten Entwurf kostenlos.</p>
+              <p className="text-xl text-gray-400 mb-10 max-w-xl mx-auto">
+                Buch dir 30 Minuten — wir besprechen dein Projekt und du bekommst einen ersten Entwurf kostenlos.
+              </p>
+
+              <button
+                onClick={openCalendly}
+                className="inline-flex items-center justify-center px-10 py-5 text-xl font-bold text-white transition-all duration-200 rounded-lg hover:scale-105 shadow-[0_0_40px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+              >
+                Termin buchen — kostenlos
+              </button>
+
+              <p className="text-gray-500 text-sm mt-4">30 Minuten · Unverbindlich · Per Video-Call</p>
+
+              <p className="text-gray-600 text-sm mt-8">
+                Oder schreib uns direkt an{' '}
+                <a href="mailto:info@workwithjpr.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
+                  info@workwithjpr.com
+                </a>
+              </p>
             </div>
+          </section>
+        </div>
 
-            <div className="rounded-2xl overflow-hidden border border-white/10">
-              <iframe
-                src="https://calendly.com/workwithjpr/30min?hide_gdpr_banner=1&background_color=0a0a0a&text_color=ffffff&primary_color=06b6d4"
-                width="100%"
-                height="700"
-                frameBorder="0"
-                title="Termin buchen"
-                className="w-full"
-              />
-            </div>
-
-            <p className="text-center text-gray-500 text-sm mt-6">
-              Oder schreib uns direkt an{' '}
-              <a href="mailto:info@workwithjpr.com" className="text-cyan-400 hover:text-cyan-300 transition-colors">
-                info@workwithjpr.com
-              </a>
-            </p>
-          </div>
-        </section>
-
-        <FAQSection />
+        <div ref={section9.ref} className={fadeClass(section9.isInView)}>
+          <FAQSection />
+        </div>
 
         {/* Footer */}
         <footer className="py-20 px-4 bg-black border-t border-white/5">
@@ -229,14 +290,22 @@ const App: React.FC = () => {
                   {link.label}
                 </button>
               ))}
-              <button onClick={scrollToForm} className="ml-2 px-5 py-2 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.6)] text-sm">
+              <button
+                onClick={openCalendly}
+                className="ml-2 px-5 py-2 text-white font-semibold rounded-lg transition-all duration-300 hover:scale-105 shadow-[0_0_20px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%] text-sm"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+              >
                 Kostenloser Entwurf
               </button>
             </nav>
 
             {/* Mobile: CTA + Hamburger */}
             <div className="md:hidden flex items-center gap-3">
-              <button onClick={scrollToForm} className="px-4 py-2 text-white font-semibold bg-cyan-500 rounded-lg hover:bg-cyan-400 transition-all text-sm shadow-[0_0_15px_rgba(6,182,212,0.5)]">
+              <button
+                onClick={openCalendly}
+                className="px-4 py-2 text-white font-semibold rounded-lg transition-all text-sm shadow-[0_0_15px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+              >
                 Anfragen
               </button>
               <button

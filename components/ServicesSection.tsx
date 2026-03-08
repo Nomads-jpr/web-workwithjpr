@@ -2,10 +2,10 @@ import React from 'react';
 import { Globe, CalendarCheck, Database, ShoppingCart } from 'lucide-react';
 
 interface Props {
-  scrollToForm: () => void;
+  openCalendly: () => void;
 }
 
-const ServicesSection: React.FC<Props> = ({ scrollToForm }) => {
+const ServicesSection: React.FC<Props> = ({ openCalendly }) => {
   const services = [
     {
       icon: Globe,
@@ -68,7 +68,7 @@ const ServicesSection: React.FC<Props> = ({ scrollToForm }) => {
         </div>
 
         <div className="text-center mt-12">
-          <button onClick={scrollToForm} className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
+          <button onClick={openCalendly} className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
             Lass uns herausfinden, was du brauchst →
           </button>
         </div>
