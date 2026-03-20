@@ -40,34 +40,46 @@ const ServicesSection: React.FC<Props> = ({ openCalendly }) => {
   return (
     <section className="py-20 px-4 bg-zinc-900/30">
       <div className="container mx-auto max-w-6xl">
-        <div className="text-center mb-16">
+        <div className="mb-16">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Unsere Leistungen</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Was wir für dich bauen</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">Lösungen, die dein Geschäft weiterbringen.</p>
+          <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-4">Was wir für dich bauen</h2>
+          <p className="text-gray-400 text-lg max-w-[50ch]">Lösungen, die dein Geschäft weiterbringen.</p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+        <div className="space-y-6">
           {services.map((s, idx) => (
-            <div key={idx} className="p-8 rounded-2xl bg-zinc-800/40 backdrop-blur-sm border border-white/5 hover:border-cyan-500/50 hover:bg-zinc-800/60 transition-all duration-300 hover:-translate-y-2 group">
-              <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-6 group-hover:bg-cyan-500/20 transition-colors">
-                <s.icon className="w-7 h-7 text-cyan-400" />
+            <div
+              key={idx}
+              className={`grid grid-cols-1 md:grid-cols-[1fr_2fr] gap-6 p-8 rounded-2xl bg-zinc-800/40 border border-white/5 hover:border-cyan-500/30 transition-all duration-300 group ${
+                idx % 2 === 1 ? 'md:grid-cols-[2fr_1fr]' : ''
+              }`}
+            >
+              {/* Icon + Title block */}
+              <div className={`flex flex-col justify-center ${idx % 2 === 1 ? 'md:order-2' : ''}`}>
+                <div className="w-14 h-14 rounded-xl bg-cyan-500/10 flex items-center justify-center mb-5 group-hover:bg-cyan-500/20 transition-colors">
+                  <s.icon className="w-7 h-7 text-cyan-400" strokeWidth={1.5} />
+                </div>
+                <h3 className="text-2xl font-display font-bold tracking-tight mb-1">{s.title}</h3>
+                <p className="text-cyan-400 text-sm font-medium">{s.subtitle}</p>
               </div>
-              <h3 className="text-2xl font-bold mb-1">{s.title}</h3>
-              <p className="text-cyan-400 text-sm font-medium mb-4">{s.subtitle}</p>
-              <p className="text-gray-400 leading-relaxed mb-6">{s.desc}</p>
-              <ul className="space-y-2">
-                {s.features.map((f, i) => (
-                  <li key={i} className="flex items-center gap-2 text-sm text-gray-500">
-                    <div className="w-1.5 h-1.5 rounded-full bg-cyan-500" />
-                    {f}
-                  </li>
-                ))}
-              </ul>
+
+              {/* Description + Features block */}
+              <div className={`flex flex-col justify-center ${idx % 2 === 1 ? 'md:order-1' : ''}`}>
+                <p className="text-gray-400 leading-relaxed mb-6 max-w-[55ch]">{s.desc}</p>
+                <ul className="space-y-2">
+                  {s.features.map((f, i) => (
+                    <li key={i} className="flex items-center gap-2 text-sm text-gray-500">
+                      <div className="w-1.5 h-1.5 rounded-full bg-cyan-500 flex-shrink-0" />
+                      {f}
+                    </li>
+                  ))}
+                </ul>
+              </div>
             </div>
           ))}
         </div>
 
-        <div className="text-center mt-12">
+        <div className="mt-12">
           <button onClick={openCalendly} className="text-cyan-400 hover:text-cyan-300 font-semibold transition-colors">
             Lass uns herausfinden, was du brauchst →
           </button>

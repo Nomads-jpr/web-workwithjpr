@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useRef, useEffect } from 'react';
 import { ChevronDown } from 'lucide-react';
 
 const FAQSection: React.FC = () => {
@@ -40,29 +40,58 @@ const FAQSection: React.FC = () => {
       <div className="container mx-auto max-w-3xl">
         <div className="text-center mb-12">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">FAQ</p>
-          <h2 className="text-3xl md:text-4xl font-bold mb-4">Häufige Fragen</h2>
+          <h2 className="text-3xl md:text-4xl font-display font-bold tracking-tight mb-4">Häufige Fragen</h2>
         </div>
 
         <div className="space-y-3">
           {faqs.map((faq, idx) => (
-            <div key={idx} className="rounded-xl bg-zinc-800/40 border border-white/5 overflow-hidden hover:border-cyan-500/30 transition-colors">
-              <button
-                onClick={() => setOpenIndex(openIndex === idx ? null : idx)}
-                className="w-full px-6 py-5 text-left flex items-center justify-between gap-4"
-              >
-                <span className="font-semibold text-white">{faq.q}</span>
-                <ChevronDown className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 ${openIndex === idx ? 'rotate-180' : ''}`} />
-              </button>
-              {openIndex === idx && (
-                <div className="px-6 pb-5 text-gray-400 text-sm leading-relaxed animate-fade-in">
-                  {faq.a}
-                </div>
-              )}
-            </div>
+            <FAQItem
+              key={idx}
+              question={faq.q}
+              answer={faq.a}
+              isOpen={openIndex === idx}
+              onToggle={() => setOpenIndex(openIndex === idx ? null : idx)}
+            />
           ))}
         </div>
       </div>
     </section>
+  );
+};
+
+const FAQItem: React.FC<{
+  question: string;
+  answer: string;
+  isOpen: boolean;
+  onToggle: () => void;
+}> = ({ question, answer, isOpen, onToggle }) => {
+  const contentRef = useRef<HTMLDivElement>(null);
+  const [height, setHeight] = useState(0);
+
+  useEffect(() => {
+    if (contentRef.current) {
+      setHeight(isOpen ? contentRef.current.scrollHeight : 0);
+    }
+  }, [isOpen]);
+
+  return (
+    <div className="rounded-xl bg-zinc-800/40 border border-white/5 overflow-hidden hover:border-cyan-500/30 transition-colors">
+      <button
+        onClick={onToggle}
+        className="w-full px-6 py-5 text-left flex items-center justify-between gap-4"
+      >
+        <span className="font-semibold text-white">{question}</span>
+        <ChevronDown className={`w-5 h-5 text-gray-400 flex-shrink-0 transition-transform duration-300 ${isOpen ? 'rotate-180' : ''}`} />
+      </button>
+      <div
+        style={{ height: `${height}px` }}
+        className="transition-[height] duration-300 ease-out overflow-hidden"
+      >
+        <div ref={contentRef} className="px-6 pb-5 text-gray-400 text-sm leading-relaxed">
+          {answer}
+        </div>
+      </div>
+    </div>
   );
 };
 

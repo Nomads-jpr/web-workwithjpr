@@ -121,17 +121,21 @@ const App: React.FC = () => {
   const section8 = useInView();
   const section9 = useInView();
 
-  const fadeClass = (inView: boolean) =>
-    `transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-6'}`;
+  const fadeUp = (inView: boolean) =>
+    `transition-all duration-700 ${inView ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-8'}`;
+  const fadeLeft = (inView: boolean) =>
+    `transition-all duration-700 ${inView ? 'opacity-100 translate-x-0' : 'opacity-0 -translate-x-8'}`;
+  const fadeScale = (inView: boolean) =>
+    `transition-all duration-700 ${inView ? 'opacity-100 scale-100' : 'opacity-0 scale-95'}`;
 
   if (currentView === 'IMPRINT') return <Imprint onBack={() => navigate('HOME')} />;
   if (currentView === 'PRIVACY') return <Privacy onBack={() => navigate('HOME')} />;
 
   return (
-    <div className="min-h-screen bg-black text-white overflow-x-hidden selection:bg-cyan-500 selection:text-white">
+    <div className="min-h-[100dvh] bg-zinc-950 text-white overflow-x-hidden selection:bg-cyan-500 selection:text-white">
       {/* Background */}
       <div className="fixed inset-0 pointer-events-none z-0">
-        <div className="absolute inset-0 bg-gradient-to-br from-black via-zinc-950 to-black" />
+        <div className="absolute inset-0 bg-gradient-to-br from-zinc-950 via-zinc-900 to-zinc-950" />
         <div className="absolute top-0 left-1/4 w-[500px] h-[500px] bg-cyan-600/20 rounded-full blur-[120px] animate-pulse" style={{ animationDuration: '4s' }} />
         <div className="absolute bottom-0 right-1/3 w-[400px] h-[400px] bg-emerald-600/15 rounded-full blur-[100px] animate-pulse" style={{ animationDuration: '6s', animationDelay: '1s' }} />
         <div className="absolute top-1/2 right-1/4 w-[300px] h-[300px] bg-cyan-500/10 rounded-full blur-[80px] animate-pulse" style={{ animationDuration: '5s', animationDelay: '2s' }} />
@@ -146,68 +150,77 @@ const App: React.FC = () => {
       </div>
 
       <div className="relative z-10">
-        {/* Hero */}
-        <header className="min-h-screen flex items-center justify-center px-4 pt-10 pb-20">
-          <div className="container mx-auto max-w-5xl text-center">
-            <div className="flex justify-center mb-14 animate-fade-in">
-              <img
-                src="/JPR1.png"
-                alt="JPR Consulting"
-                className="w-44 h-44 md:w-56 md:h-56 rounded-full hover:scale-105 transition-all duration-500"
-              />
-            </div>
+        {/* Hero — Split Layout */}
+        <header className="min-h-[100dvh] flex items-center px-4 pt-10 pb-20">
+          <div className="container mx-auto max-w-6xl">
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
+              {/* Left: Content */}
+              <div>
+                <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-none animate-slide-up" style={{ animationDelay: '0.1s' }}>
+                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+                    Deine neue Website —
+                  </span>
+                  <br />
+                  <span className="text-white">in Tagen, nicht Monaten.</span>
+                </h1>
 
-            <h1 className="text-5xl md:text-7xl font-bold tracking-tight mb-6 leading-tight animate-slide-up" style={{ animationDelay: '0.1s' }}>
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-                Deine neue Website —
-              </span>
-              <br />
-              <span className="text-white">in Tagen, nicht Monaten.</span>
-            </h1>
+                <p className="text-xl text-gray-400 max-w-[50ch] mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+                  Webdesign für lokale Unternehmen in Berlin.
+                  <br />
+                  <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
+                </p>
 
-            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-              Webdesign für lokale Unternehmen in Berlin.
-              <br />
-              <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
-            </p>
+                <div className="flex flex-col sm:flex-row items-start gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
+                  <button
+                    onClick={openCalendly}
+                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 active:scale-[0.98] hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.3)] animate-gradient-shift bg-[length:200%_200%]"
+                    style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+                  >
+                    Kostenloser Entwurf anfragen
+                  </button>
+                  <p className="text-gray-500 text-sm self-center">Aktuell freie Kapazitäten — Projekt noch diesen Monat starten</p>
+                </div>
+              </div>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
-              <button
-                onClick={openCalendly}
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.5)] animate-gradient-shift bg-[length:200%_200%]"
-                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
-              >
-                Kostenloser Entwurf anfragen
-              </button>
-              <p className="text-gray-500 text-sm">Aktuell freie Kapazitäten — Projekt noch diesen Monat starten</p>
+              {/* Right: Logo + Visual */}
+              <div className="flex justify-center md:justify-end animate-fade-in">
+                <div className="relative">
+                  <div className="absolute -inset-8 bg-cyan-500/10 rounded-full blur-[60px]" />
+                  <img
+                    src="/JPR1.png"
+                    alt="JPR Consulting"
+                    className="relative w-52 h-52 md:w-72 md:h-72 rounded-full hover:scale-105 transition-all duration-500"
+                  />
+                </div>
+              </div>
             </div>
           </div>
         </header>
 
-        <div ref={section1.ref} className={fadeClass(section1.isInView)}>
+        <div ref={section1.ref} className={fadeUp(section1.isInView)}>
           <ProblemSection />
         </div>
-        <div ref={section2.ref} className={fadeClass(section2.isInView)} id="services">
+        <div ref={section2.ref} className={fadeLeft(section2.isInView)} id="services">
           <ServicesSection openCalendly={openCalendly} />
         </div>
-        <div ref={section3.ref} className={fadeClass(section3.isInView)}>
+        <div ref={section3.ref} className={fadeUp(section3.isInView)}>
           <HowItWorksSection />
         </div>
-        <div ref={section4.ref} className={fadeClass(section4.isInView)} id="portfolio">
+        <div ref={section4.ref} className={fadeScale(section4.isInView)} id="portfolio">
           <PortfolioSection />
         </div>
-        <div ref={section5.ref} className={fadeClass(section5.isInView)}>
+        <div ref={section5.ref} className={fadeUp(section5.isInView)}>
           <TestimonialsSection />
         </div>
-        <div ref={section6.ref} className={fadeClass(section6.isInView)} id="pricing">
+        <div ref={section6.ref} className={fadeLeft(section6.isInView)} id="pricing">
           <PricingSection openCalendly={openCalendly} />
         </div>
-        <div ref={section7.ref} className={fadeClass(section7.isInView)} id="about">
+        <div ref={section7.ref} className={fadeUp(section7.isInView)} id="about">
           <AboutSection openCalendly={openCalendly} />
         </div>
 
         {/* Consultation Section */}
-        <div ref={section8.ref} className={fadeClass(section8.isInView)}>
+        <div ref={section8.ref} className={fadeScale(section8.isInView)}>
           <section id="consultation-form" className="py-24 px-4 relative">
             <div className="container mx-auto max-w-3xl text-center">
               <h2 className="text-3xl md:text-5xl font-bold mb-4">Bereit loszulegen?</h2>
@@ -235,12 +248,12 @@ const App: React.FC = () => {
           </section>
         </div>
 
-        <div ref={section9.ref} className={fadeClass(section9.isInView)}>
+        <div ref={section9.ref} className={fadeUp(section9.isInView)}>
           <FAQSection />
         </div>
 
         {/* Footer */}
-        <footer className="py-20 px-4 bg-black border-t border-white/5">
+        <footer className="py-20 px-4 bg-zinc-950 border-t border-white/5">
           <div className="container mx-auto max-w-6xl">
             <div className="flex justify-center mb-10">
               <img src="/JPR1.png" alt="JPR Consulting" className="w-28 h-28 md:w-36 md:h-36 rounded-full opacity-80 hover:opacity-100 transition-opacity duration-300" />
@@ -271,7 +284,7 @@ const App: React.FC = () => {
 
       {/* Sticky Navigation */}
       {showStickyCTA && (
-        <div className="fixed top-0 left-0 right-0 z-50 bg-black/98 backdrop-blur-2xl border-b border-white/5 shadow-2xl animate-slide-up">
+        <div className="fixed top-0 left-0 right-0 z-50 bg-zinc-950/98 backdrop-blur-2xl border-b border-white/5 shadow-2xl animate-slide-up">
           <div className="container mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             {/* Logo + Name */}
             <button onClick={scrollToTop} className="flex items-center gap-4 group">
@@ -320,7 +333,7 @@ const App: React.FC = () => {
 
           {/* Mobile Menu Drawer */}
           {mobileMenuOpen && (
-            <div className="md:hidden border-t border-white/5 bg-black/98 backdrop-blur-2xl">
+            <div className="md:hidden border-t border-white/5 bg-zinc-950/98 backdrop-blur-2xl">
               <div className="container mx-auto max-w-6xl px-4 py-4 flex flex-col gap-3">
                 {navLinks.map((link) => (
                   <button
