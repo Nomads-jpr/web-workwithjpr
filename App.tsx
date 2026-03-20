@@ -186,11 +186,13 @@ const App: React.FC = () => {
               <div className="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in">
                 <div className="relative">
                   <div className="absolute -inset-8 bg-cyan-500/10 rounded-full blur-[60px]" />
-                  <img
-                    src="/JPR1.png"
-                    alt="JPR Consulting"
-                    className="relative w-36 h-36 md:w-72 md:h-72 rounded-full hover:scale-105 transition-all duration-500"
-                  />
+                  <div className="relative w-36 h-36 md:w-72 md:h-72 rounded-full overflow-hidden hover:scale-105 transition-all duration-500">
+                    <img
+                      src="/JPR1.png"
+                      alt="JPR Consulting"
+                      className="w-full h-full object-cover scale-110"
+                    />
+                  </div>
                 </div>
               </div>
             </div>
