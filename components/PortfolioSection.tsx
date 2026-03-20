@@ -8,7 +8,7 @@ const PortfolioSection: React.FC = () => {
       type: 'Sport & Verein',
       desc: 'Berlins einziges durch die Thailand Sports Authority zertifiziertes Muay Thai Gym. Dark-Theme mit Neon-Akzenten, Trainingsplan und Mitgliederverwaltung.',
       tags: ['Website', 'Mitgliederverwaltung', 'Online-Verträge'],
-      url: 'https://muay-thai-subyen.vercel.app',
+      url: 'https://www.muaythai-subyen.de',
       image: '/portfolio/muay-thai-subyen.png',
       result: 'Trainingszeiten, Mitgliederverwaltung und Online-Vertragsabschluss — alles in einer Woche umgesetzt',
     },

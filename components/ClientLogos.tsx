@@ -2,7 +2,7 @@ import React from 'react';
 
 const ClientLogos: React.FC = () => {
   const clients = [
-    { name: 'Muay Thai Subyen e.V.', url: 'https://muay-thai-subyen.vercel.app' },
+    { name: 'Muay Thai Subyen e.V.', url: 'https://www.muaythai-subyen.de' },
     { name: 'ropeFX Berlin', url: 'https://ropefx.vercel.app' },
   ];
 
