@@ -28,7 +28,7 @@ const PortfolioSection: React.FC = () => {
       <div className="container mx-auto max-w-6xl">
         <div className="text-center mb-16">
           <p className="text-cyan-400 text-sm font-semibold uppercase tracking-widest mb-3">Portfolio</p>
-          <h2 className="text-3xl md:text-5xl font-bold mb-4">Das haben wir gebaut</h2>
+          <h2 className="text-3xl md:text-5xl font-display font-bold tracking-tight mb-4">Unsere Arbeit</h2>
           <p className="text-gray-400 text-lg">Aktuelle Projekte für lokale Unternehmen in Berlin.</p>
         </div>
 
