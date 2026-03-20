@@ -9,7 +9,7 @@ const PortfolioSection: React.FC = () => {
       desc: 'Berlins einziges durch die Thailand Sports Authority zertifiziertes Muay Thai Gym. Dark-Theme mit Neon-Akzenten, Trainingsplan und Mitgliederverwaltung.',
       tags: ['Website', 'Mitgliederverwaltung', 'Online-Verträge'],
       url: 'https://www.muaythai-subyen.de',
-      image: '/portfolio/muay-thai-subyen.png',
+      image: '/portfolio/muay-thai-subyen.webp',
       result: 'Trainingszeiten, Mitgliederverwaltung und Online-Vertragsabschluss — alles in einer Woche umgesetzt',
     },
     {
@@ -18,7 +18,7 @@ const PortfolioSection: React.FC = () => {
       desc: 'FISAT-zertifiziertes Höhenarbeitsunternehmen. Klare Darstellung aller Services, von Fassadenreinigung bis Drohneninspektion.',
       tags: ['Website', 'Google-Sichtbarkeit', 'Google-Optimierung', 'Kundengewinnung'],
       url: 'https://ropefx.vercel.app',
-      image: '/portfolio/ropefx.png',
+      image: '/portfolio/ropefx.webp',
       result: 'Regelmäßige Anfragen über die Website seit Launch',
     },
   ];

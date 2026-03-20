@@ -158,7 +158,7 @@ const App: React.FC = () => {
                 <div className="absolute -inset-6 bg-cyan-500/10 rounded-full blur-[50px]" />
                 <div className="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden hover:scale-105 transition-all duration-500">
                   <img
-                    src="/JPR1.png"
+                    src="/JPR1.webp"
                     alt="JPR Consulting"
                     className="w-full h-full object-cover scale-110"
                   />
@@ -252,7 +252,7 @@ const App: React.FC = () => {
         <footer className="py-20 px-4 bg-zinc-950 border-t border-white/5">
           <div className="container mx-auto max-w-6xl">
             <div className="flex justify-center mb-10">
-              <img src="/JPR1.png" alt="JPR Consulting" className="w-28 h-28 md:w-36 md:h-36 rounded-full opacity-80 hover:opacity-100 transition-opacity duration-300" />
+              <img src="/JPR1.webp" alt="JPR Consulting" className="w-28 h-28 md:w-36 md:h-36 rounded-full opacity-80 hover:opacity-100 transition-opacity duration-300" />
             </div>
 
             {/* Site Links */}
@@ -284,7 +284,7 @@ const App: React.FC = () => {
           <div className="container mx-auto max-w-6xl px-4 py-3 flex items-center justify-between">
             {/* Logo + Name */}
             <button onClick={scrollToTop} className="flex items-center gap-4 group">
-              <img src="/JPR1.png" alt="JPR" className="w-12 h-12 md:w-10 md:h-10 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
+              <img src="/JPR1.webp" alt="JPR" className="w-12 h-12 md:w-10 md:h-10 rounded-full opacity-90 group-hover:opacity-100 transition-opacity" />
               <span className="hidden md:block text-white font-bold text-sm">JPR Consulting</span>
             </button>
 
