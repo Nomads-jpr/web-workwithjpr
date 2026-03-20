@@ -150,51 +150,45 @@ const App: React.FC = () => {
       </div>
 
       <div className="relative z-10">
-        {/* Hero — Split Layout */}
-        <header className="min-h-[100dvh] flex items-center px-4 pt-10 pb-20">
-          <div className="container mx-auto max-w-6xl">
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-16 items-center">
-              {/* Left: Content (order-2 on mobile so logo appears first) */}
-              <div className="order-2 md:order-1 text-center md:text-left">
-                <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-none animate-slide-up" style={{ animationDelay: '0.1s' }}>
-                  <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
-                    Deine neue Website —
-                  </span>
-                  <br />
-                  <span className="text-white">in Tagen, nicht Monaten.</span>
-                </h1>
-
-                <p className="text-xl text-gray-400 max-w-[50ch] mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
-                  Webdesign für lokale Unternehmen in Berlin.
-                  <br />
-                  <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
-                </p>
-
-                <div className="flex flex-col sm:flex-row items-center md:items-start gap-4 animate-slide-up" style={{ animationDelay: '0.3s' }}>
-                  <button
-                    onClick={openCalendly}
-                    className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 active:scale-[0.98] hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.3)] animate-gradient-shift bg-[length:200%_200%]"
-                    style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
-                  >
-                    Kostenloser Entwurf anfragen
-                  </button>
-                  <p className="text-gray-500 text-sm self-center">Aktuell freie Kapazitäten — Projekt noch diesen Monat starten</p>
+        {/* Hero */}
+        <header className="min-h-[100dvh] flex items-center justify-center px-4 pt-10 pb-20">
+          <div className="container mx-auto max-w-5xl text-center">
+            <div className="flex justify-center mb-14 animate-fade-in">
+              <div className="relative">
+                <div className="absolute -inset-6 bg-cyan-500/10 rounded-full blur-[50px]" />
+                <div className="relative w-44 h-44 md:w-56 md:h-56 rounded-full overflow-hidden hover:scale-105 transition-all duration-500">
+                  <img
+                    src="/JPR1.png"
+                    alt="JPR Consulting"
+                    className="w-full h-full object-cover scale-110"
+                  />
                 </div>
               </div>
+            </div>
 
-              {/* Right: Logo + Visual (order-1 on mobile = appears on top) */}
-              <div className="order-1 md:order-2 flex justify-center md:justify-end animate-fade-in">
-                <div className="relative">
-                  <div className="absolute -inset-8 bg-cyan-500/10 rounded-full blur-[60px]" />
-                  <div className="relative w-36 h-36 md:w-72 md:h-72 rounded-full overflow-hidden hover:scale-105 transition-all duration-500">
-                    <img
-                      src="/JPR1.png"
-                      alt="JPR Consulting"
-                      className="w-full h-full object-cover scale-110"
-                    />
-                  </div>
-                </div>
-              </div>
+            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-none animate-slide-up" style={{ animationDelay: '0.1s' }}>
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
+                Deine neue Website —
+              </span>
+              <br />
+              <span className="text-white">in Tagen, nicht Monaten.</span>
+            </h1>
+
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+              Webdesign für lokale Unternehmen in Berlin.
+              <br />
+              <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
+            </p>
+
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+              <button
+                onClick={openCalendly}
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 active:scale-[0.98] hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.3)] animate-gradient-shift bg-[length:200%_200%]"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+              >
+                Kostenloser Entwurf anfragen
+              </button>
+              <p className="text-gray-500 text-sm">Aktuell freie Kapazitäten — Projekt noch diesen Monat starten</p>
             </div>
           </div>
         </header>
