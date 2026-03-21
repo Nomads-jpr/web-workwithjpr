@@ -11,7 +11,10 @@ import FAQSection from './components/FAQSection';
 import Imprint from './components/Imprint';
 import Privacy from './components/Privacy';
 import CookieBanner from './components/CookieBanner';
+import BlogIndex from './components/BlogIndex';
+import BlogPostView from './components/BlogPost';
 import { useInView } from './hooks/useInView';
+import { getPostBySlug } from './content/blog';
 
 declare global {
   interface Window {
@@ -22,13 +25,13 @@ declare global {
 }
 
 
-type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY';
+type ViewState = 'HOME' | 'IMPRINT' | 'PRIVACY' | 'BLOG' | 'BLOG_POST';
 
 const navLinks = [
   { label: 'Leistungen', id: 'services' },
   { label: 'Portfolio', id: 'portfolio' },
   { label: 'Preise', id: 'pricing' },
-  { label: 'Über mich', id: 'about' },
+  { label: 'Blog', id: 'blog' },
 ];
 
 const App: React.FC = () => {
@@ -36,6 +39,7 @@ const App: React.FC = () => {
   const [showStickyCTA, setShowStickyCTA] = useState(false);
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const [currentView, setCurrentView] = useState<ViewState>('HOME');
+  const [currentSlug, setCurrentSlug] = useState<string>('');
 
   useEffect(() => {
     const handleScroll = () => {
@@ -71,6 +75,12 @@ const App: React.FC = () => {
         setCurrentView('IMPRINT');
       } else if (path === '/privacy' || path === '/datenschutz') {
         setCurrentView('PRIVACY');
+      } else if (path === '/blog') {
+        setCurrentView('BLOG');
+      } else if (path.startsWith('/blog/')) {
+        const slug = path.replace('/blog/', '');
+        setCurrentSlug(slug);
+        setCurrentView('BLOG_POST');
       } else {
         setCurrentView('HOME');
       }
@@ -81,15 +91,22 @@ const App: React.FC = () => {
   }, []);
 
   useEffect(() => {
-    const path = currentView === 'IMPRINT' ? '/imprint'
-      : currentView === 'PRIVACY' ? '/privacy'
-      : '/';
+    let path = '/';
+    if (currentView === 'IMPRINT') path = '/imprint';
+    else if (currentView === 'PRIVACY') path = '/privacy';
+    else if (currentView === 'BLOG') path = '/blog';
+    else if (currentView === 'BLOG_POST' && currentSlug) path = `/blog/${currentSlug}`;
     if (window.location.pathname !== path) {
       window.history.pushState({}, '', path);
     }
-  }, [currentView]);
+  }, [currentView, currentSlug]);
 
   const scrollToSection = (id: string) => {
+    if (id === 'blog') {
+      navigate('BLOG');
+      setMobileMenuOpen(false);
+      return;
+    }
     document.getElementById(id)?.scrollIntoView({ behavior: 'smooth' });
     setMobileMenuOpen(false);
   };
@@ -106,8 +123,9 @@ const App: React.FC = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
-  const navigate = (view: ViewState) => {
-    setCurrentView(view);
+  const navigate = (view: string, slug?: string) => {
+    if (slug) setCurrentSlug(slug);
+    setCurrentView(view as ViewState);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
@@ -130,6 +148,12 @@ const App: React.FC = () => {
 
   if (currentView === 'IMPRINT') return <Imprint onBack={() => navigate('HOME')} />;
   if (currentView === 'PRIVACY') return <Privacy onBack={() => navigate('HOME')} />;
+  if (currentView === 'BLOG') return <BlogIndex onNavigate={navigate} />;
+  if (currentView === 'BLOG_POST') {
+    const post = getPostBySlug(currentSlug);
+    if (post) return <BlogPostView post={post} onNavigate={navigate} openCalendly={openCalendly} />;
+    return <BlogIndex onNavigate={navigate} />;
+  }
 
   return (
     <div className="min-h-[100dvh] bg-zinc-950 text-white overflow-x-hidden selection:bg-cyan-500 selection:text-white">
@@ -263,6 +287,7 @@ const App: React.FC = () => {
             </div>
 
             <div className="flex flex-wrap justify-center gap-8 mb-10 text-sm">
+              <button onClick={() => navigate('BLOG')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Blog</button>
               <button onClick={() => navigate('IMPRINT')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Impressum</button>
               <button onClick={() => navigate('PRIVACY')} className="text-gray-400 hover:text-white transition-colors cursor-pointer">Datenschutz</button>
               <a href="mailto:info@workwithjpr.com" className="text-gray-400 hover:text-white transition-colors">Kontakt</a>
