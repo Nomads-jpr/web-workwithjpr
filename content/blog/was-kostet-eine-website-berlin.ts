@@ -2,7 +2,7 @@ export const post = {
   slug: 'was-kostet-eine-website-berlin',
   title: 'Was kostet eine Website in Berlin? Preise, Pakete und Tipps für 2026',
   description: 'Realistische Preise für professionelles Webdesign in Berlin. Von der einfachen One-Page Website bis zum Online-Shop — was du wirklich zahlen musst.',
-  date: '2026-03-21',
+  date: '2026-03-08',
   tags: ['Webdesign', 'Berlin', 'Preise'],
   readTime: '6 min',
   content: `

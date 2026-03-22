@@ -2,7 +2,7 @@ export const post = {
   slug: 'individuelles-backend-vs-wordpress',
   title: 'Individuelles Backend vs. WordPress: Wann lohnt sich was?',
   description: 'WordPress reicht nicht immer. Wann du ein individuelles Backend brauchst und was der Unterschied für dein Unternehmen bedeutet.',
-  date: '2026-03-22',
+  date: '2026-03-12',
   tags: ['Webentwicklung', 'WordPress', 'Backend'],
   readTime: '6 min',
   content: `
