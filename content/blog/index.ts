@@ -1,4 +1,7 @@
 import { post as wasKostet } from './was-kostet-eine-website-berlin';
+import { post as automatisierung } from './automatisierung-fuer-kleine-unternehmen';
+import { post as backend } from './individuelles-backend-vs-wordpress';
+import { post as kiSeo } from './ki-suchmaschinenoptimierung-2026';
 
 export interface BlogPost {
   slug: string;
@@ -12,6 +15,9 @@ export interface BlogPost {
 
 export const blogPosts: BlogPost[] = [
   wasKostet,
+  automatisierung,
+  backend,
+  kiSeo,
 ].sort((a, b) => new Date(b.date).getTime() - new Date(a.date).getTime());
 
 export function getPostBySlug(slug: string): BlogPost | undefined {

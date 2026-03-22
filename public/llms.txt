@@ -1,0 +1,40 @@
+# JPR Consulting GmbH
+
+> Webdesign und digitale Lösungen für lokale Unternehmen in Berlin.
+
+## Über uns
+
+JPR Consulting ist eine Webdesign-Agentur in Berlin, gegründet von Jan Rojek. Wir erstellen moderne, schnelle Websites für Handwerker, Praxen, Gastronomen und lokale Dienstleister. Kein WordPress — wir bauen mit React und moderner Webtechnologie.
+
+## Leistungen
+
+- Moderne Websites (mobil optimiert, SEO-freundlich, ab 1.500€)
+- Online-Terminbuchung für Praxen und Dienstleister
+- Online-Shops mit sicherer Zahlungsabwicklung
+- Digitale Geschäftstools (Kundenverwaltung, Rechnungen, Automatisierung)
+- KI-Automatisierung und Prozessoptimierung
+
+## Preise
+
+- Starter (One-Page Website): ab 1.500€
+- Professional (Mehrseitige Website + Buchungssystem): ab 3.000€
+- Business (Web-App oder Online-Shop): ab 5.000€
+
+Erster Entwurf kostenlos — du siehst vorab, was du bekommst.
+
+## Kontakt
+
+- Website: https://workwithjpr.com
+- E-Mail: info@workwithjpr.com
+- Telefon: +49 176 31 50 4123
+- Adresse: Letteallee 91, 13409 Berlin
+- LinkedIn: https://www.linkedin.com/in/jan-rojek-b31474a
+
+## Weitere Services
+
+- KI-Automatisierung: https://ai.workwithjpr.com
+- Gaming User Acquisition: https://game.workwithjpr.com
+
+## Blog
+
+- Was kostet eine Website in Berlin?: https://workwithjpr.com/blog/was-kostet-eine-website-berlin
