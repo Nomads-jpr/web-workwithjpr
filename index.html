@@ -256,8 +256,9 @@
     </script>
   </head>
   <body class="bg-zinc-950 text-white antialiased">
-    <!-- Pre-rendered content for AI crawlers (React hydrates over this) -->
+    <!-- Pre-rendered content for AI crawlers (hidden from users, visible to crawlers that don't execute JS) -->
     <div id="root">
+      <div id="prerender" style="display:none">
       <header>
         <h1>Deine neue Website — in Tagen, nicht Monaten.</h1>
         <p>Webdesign für lokale Unternehmen in Berlin. Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</p>
@@ -305,6 +306,7 @@
           <a href="https://game.workwithjpr.com">Gaming UA</a>
         </nav>
       </main>
+      </div>
     </div>
     <noscript>
       <h1>JPR Consulting — Webdesign Berlin</h1>
