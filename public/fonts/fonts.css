@@ -1,0 +1,17 @@
+/* Self-hosted fonts — DSGVO compliant (no external requests) */
+
+@font-face {
+  font-family: 'Outfit';
+  src: url('/fonts/outfit-latin.woff2') format('woff2');
+  font-weight: 300 800;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: 'Satoshi';
+  src: url('/fonts/satoshi-variable.woff2') format('woff2');
+  font-weight: 400 900;
+  font-style: normal;
+  font-display: swap;
+}

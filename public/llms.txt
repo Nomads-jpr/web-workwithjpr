@@ -38,3 +38,6 @@ Erster Entwurf kostenlos — du siehst vorab, was du bekommst.
 ## Blog
 
 - Was kostet eine Website in Berlin?: https://workwithjpr.com/blog/was-kostet-eine-website-berlin
+- Individuelles Backend vs. WordPress: https://workwithjpr.com/blog/individuelles-backend-vs-wordpress
+- Automatisierung für kleine Unternehmen: https://workwithjpr.com/blog/automatisierung-fuer-kleine-unternehmen
+- KI-Suchmaschinenoptimierung 2026: https://workwithjpr.com/blog/ki-suchmaschinenoptimierung-2026

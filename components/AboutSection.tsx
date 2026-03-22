@@ -13,7 +13,7 @@ const AboutSection: React.FC<Props> = ({ openCalendly }) => {
           <div className="flex justify-center lg:justify-start">
             <div className="relative">
               <div className="w-64 h-64 md:w-80 md:h-80 rounded-full overflow-hidden border-4 border-cyan-500/30 shadow-[0_0_40px_rgba(6,182,212,0.2)]">
-                <img src="/jan-rojek.jpg" alt="Jan Rojek" className="w-full h-full object-cover" />
+                <img src="/jan-rojek.webp" alt="Jan Rojek" className="w-full h-full object-cover" />
               </div>
               <div className="absolute -bottom-4 -right-4 px-4 py-2 rounded-full bg-cyan-500 text-white text-sm font-bold shadow-lg">
                 Berlin 📍

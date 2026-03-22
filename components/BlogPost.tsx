@@ -73,7 +73,7 @@ const BlogPost: React.FC<Props> = ({ post, onNavigate, openCalendly }) => {
           {/* Author Bio */}
           <div className="mt-12 flex items-center gap-4 p-6 rounded-2xl bg-zinc-800/40 border border-white/5">
             <div className="w-16 h-16 rounded-full overflow-hidden flex-shrink-0">
-              <img src="/jan-rojek.jpg" alt="Jan Rojek" className="w-full h-full object-cover" />
+              <img src="/jan-rojek.webp" alt="Jan Rojek" className="w-full h-full object-cover" />
             </div>
             <div>
               <p className="text-white font-semibold">Jan Rojek</p>
