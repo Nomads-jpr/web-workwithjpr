@@ -2,7 +2,7 @@ export const post = {
   slug: 'ki-suchmaschinenoptimierung-2026',
   title: 'KI-Suchmaschinenoptimierung: So wirst du von ChatGPT und Google AI gefunden',
   description: 'Klassisches SEO reicht nicht mehr. Wie du deine Website optimierst, damit KI-Systeme wie ChatGPT, Perplexity und Google AI dich empfehlen.',
-  date: '2026-03-22',
+  date: '2026-03-17',
   tags: ['SEO', 'KI', 'GEO'],
   readTime: '7 min',
   content: `

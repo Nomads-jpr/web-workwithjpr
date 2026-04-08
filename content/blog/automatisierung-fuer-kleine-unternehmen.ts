@@ -2,7 +2,7 @@ export const post = {
   slug: 'automatisierung-fuer-kleine-unternehmen',
   title: 'Automatisierung für kleine Unternehmen: Was bringt das wirklich?',
   description: 'Wie lokale Unternehmen in Berlin mit einfacher Automatisierung Zeit sparen und mehr Kunden gewinnen. Ohne Technik-Wissen.',
-  date: '2026-03-17',
+  date: '2026-03-11',
   tags: ['Automatisierung', 'Berlin', 'Kleine Unternehmen'],
   readTime: '5 min',
   content: `
