@@ -190,7 +190,7 @@ const App: React.FC = () => {
               </div>
             </div>
 
-            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-none animate-slide-up" style={{ animationDelay: '0.1s' }}>
+            <h1 className="text-5xl md:text-7xl font-display font-bold tracking-tighter mb-6 leading-none animate-fade-in">
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-emerald-400">
                 Deine neue Website —
               </span>
@@ -198,17 +198,17 @@ const App: React.FC = () => {
               <span className="text-white">in Tagen, nicht Monaten.</span>
             </h1>
 
-            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-slide-up" style={{ animationDelay: '0.2s' }}>
+            <p className="text-xl md:text-2xl text-gray-400 max-w-2xl mx-auto mb-10 leading-relaxed animate-fade-in">
               Webdesign für lokale Unternehmen in Berlin.
               <br />
               <span className="text-white font-semibold">Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</span>
             </p>
 
-            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-slide-up" style={{ animationDelay: '0.3s' }}>
+            <div className="flex flex-col sm:flex-row items-center gap-4 justify-center animate-fade-in">
               <button
                 onClick={openCalendly}
-                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 active:scale-[0.98] hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.3)] animate-gradient-shift bg-[length:200%_200%]"
-                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981, #06b6d4)' }}
+                className="inline-flex items-center justify-center px-8 py-4 text-lg font-bold text-white transition-all duration-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-cyan-500 focus:ring-offset-gray-900 active:scale-[0.98] hover:scale-105 shadow-[0_0_30px_rgba(6,182,212,0.3)]"
+                style={{ backgroundImage: 'linear-gradient(135deg, #06b6d4, #10b981)' }}
               >
                 Kostenloser Entwurf anfragen
               </button>
