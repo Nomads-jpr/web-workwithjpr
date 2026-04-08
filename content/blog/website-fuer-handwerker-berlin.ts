@@ -74,7 +74,7 @@ Ein Beispiel aus unserer Praxis: ropeFX (FISAT-zertifizierte Industriekletterer)
 - **Direkte Kontaktaufnahme** — Telefon, WhatsApp, Kontaktformular
 - **FISAT-Zertifikat** prominent platziert für Vertrauen
 
-Ergebnis: Regelmäßige Anfragen über die Website seit Launch. [ropefx.vercel.app](https://ropefx.vercel.app)
+Ergebnis: Regelmäßige Anfragen über die Website seit Launch. [ropefx.com](https://ropefx.com)
 
 ## Fazit
 

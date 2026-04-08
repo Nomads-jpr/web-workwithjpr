@@ -256,9 +256,18 @@
     </script>
   </head>
   <body class="bg-zinc-950 text-white antialiased">
-    <!-- Pre-rendered content for AI crawlers (hidden from users, visible to crawlers that don't execute JS) -->
+    <!-- Loading fallback shown until React hydrates (prevents blank screen on slow mobile) -->
     <div id="root">
-      <div id="prerender" style="display:none">
+      <div style="min-height:100vh;display:flex;align-items:center;justify-content:center;background:#09090b;color:#fff;font-family:system-ui,-apple-system,sans-serif;padding:2rem;text-align:center;">
+        <div>
+          <div style="font-size:1.5rem;font-weight:700;margin-bottom:0.5rem;">JPR Consulting</div>
+          <div style="color:#a1a1aa;font-size:0.95rem;">Webdesign Berlin — wird geladen…</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- Pre-rendered content for AI crawlers (hidden from users, visible to crawlers that don't execute JS) -->
+    <div id="prerender" style="display:none" aria-hidden="true">
       <header>
         <h1>Deine neue Website — in Tagen, nicht Monaten.</h1>
         <p>Webdesign für lokale Unternehmen in Berlin. Erster Entwurf kostenlos — du siehst vorab, was du bekommst.</p>
@@ -306,8 +315,8 @@
           <a href="https://game.workwithjpr.com">Gaming UA</a>
         </nav>
       </main>
-      </div>
     </div>
+
     <noscript>
       <h1>JPR Consulting — Webdesign Berlin</h1>
       <p>Professionelle Websites für lokale Unternehmen in Berlin. Schnelle Umsetzung, faire Preise ab 1.500€. Erster Entwurf kostenlos.</p>

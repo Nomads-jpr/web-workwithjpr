@@ -17,7 +17,7 @@ const PortfolioSection: React.FC = () => {
       type: 'Handwerk & Dienstleistung',
       desc: 'FISAT-zertifiziertes Höhenarbeitsunternehmen. Klare Darstellung aller Services, von Fassadenreinigung bis Drohneninspektion.',
       tags: ['Website', 'Google-Sichtbarkeit', 'Google-Optimierung', 'Kundengewinnung'],
-      url: 'https://ropefx.vercel.app',
+      url: 'https://ropefx.com',
       image: '/portfolio/ropefx.webp',
       result: 'Regelmäßige Anfragen über die Website seit Launch',
     },
