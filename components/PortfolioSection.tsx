@@ -7,10 +7,10 @@ const PortfolioSection: React.FC = () => {
       title: 'Muay Thai Subyen e.V.',
       type: 'Sport & Verein',
       desc: 'Berlins einziges durch die Thailand Sports Authority zertifiziertes Muay Thai Gym. Dark-Theme mit Neon-Akzenten, Trainingsplan und Mitgliederverwaltung.',
-      tags: ['Website', 'Mitgliederverwaltung', 'Online-Verträge'],
+      tags: ['Website', 'Mitgliederverwaltung', 'Online-Verträge', 'Online-Buchung', 'SEO/GEO'],
       url: 'https://www.muaythai-subyen.de',
       image: '/portfolio/muay-thai-subyen.webp',
-      result: 'Trainingszeiten, Mitgliederverwaltung und Online-Vertragsabschluss — alles in einer Woche umgesetzt',
+      result: 'Online-Buchungssystem generiert ca. 5 neue Interessenten pro Woche — plus SEO- und GEO-Suchoptimierung für bessere lokale Sichtbarkeit. Alles in einer Woche umgesetzt.',
     },
     {
       title: 'ropeFX — Industriekletterer Berlin',

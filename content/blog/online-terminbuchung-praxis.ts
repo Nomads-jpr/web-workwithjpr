@@ -80,14 +80,6 @@ Moderne Praxen nutzen Software wie CGM M1, medatixx, TurboMed oder medicenter. E
 
 **Wichtig:** Nicht jede Praxissoftware bietet eine offene API. Kläre das vorher — sonst zahlst du für eine Lösung, die nicht synchronisiert.
 
-## Case Study: Praxis Stefan Datt
-
-Für die Praxis Stefan Datt (Berlin) haben wir eine individuelle Website mit Online-Buchung aufgesetzt. Das Ergebnis:
-
-- **Klarere Kommunikation** — Behandlungsspektrum, Team, Anfahrt auf einen Blick
-- **Weniger Telefon** — Patienten buchen direkt online
-- **Mobile First** — 70% der Zugriffe kommen vom Handy, also darauf optimiert
-
 ## Fazit
 
 Online-Terminbuchung ist 2026 kein Luxus mehr, sondern Standard. Patienten erwarten es, Mitarbeiter profitieren davon, und es spart nach kurzer Zeit mehr, als es kostet.
