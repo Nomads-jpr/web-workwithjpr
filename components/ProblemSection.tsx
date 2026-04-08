@@ -43,7 +43,7 @@ const ProblemSection: React.FC = () => {
         <div className="p-6 rounded-xl bg-amber-500/10 border border-amber-500/30 flex items-start gap-4">
           <AlertTriangle className="w-6 h-6 text-amber-400 flex-shrink-0 mt-0.5" strokeWidth={1.5} />
           <p className="text-amber-200 text-sm leading-relaxed">
-            <span className="font-bold">Fakt:</span> 75% aller Kunden googeln, bevor sie zum Arzt, Friseur oder Restaurant gehen (<a href="https://www.brightlocal.com/research/local-consumer-review-survey/" target="_blank" rel="noopener noreferrer" className="underline text-amber-300 hover:text-amber-200">BrightLocal 2024</a>). Wer online nicht überzeugt, verliert.
+            <span className="font-bold">Fakt:</span> Die meisten Kunden googeln, bevor sie zum Arzt, Friseur oder Restaurant gehen. Wer online nicht überzeugt, verliert.
           </p>
         </div>
       </div>
